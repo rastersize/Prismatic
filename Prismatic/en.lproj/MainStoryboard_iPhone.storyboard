@@ -260,7 +260,7 @@
                                         <rect key="frame" x="0.0" y="277" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Default printer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tzy-cq-SbU">
@@ -297,10 +297,10 @@
             </objects>
             <point key="canvasLocation" x="1273" y="-713"/>
         </scene>
-        <!--Table View Controller - Print-->
+        <!--Print View Controller - Print-->
         <scene sceneID="Niv-Ng-otL">
             <objects>
-                <tableViewController storyboardIdentifier="PrintViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t50-rs-HAK" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PrintViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t50-rs-HAK" customClass="PRIPrintViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eA0-Bb-7ti">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -419,6 +419,12 @@
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zzw-Gc-5Bb" userLabel="Separator Line View" customClass="SSLineView">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" type="user" id="i5h-g6-5cj"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -426,7 +432,10 @@
                                             <constraint firstItem="kyg-Mh-tvR" firstAttribute="baseline" secondItem="ZnI-GS-eWg" secondAttribute="baseline" type="default" id="LSi-w6-jff"/>
                                             <constraint firstItem="kyg-Mh-tvR" firstAttribute="leading" secondItem="GCI-Ts-jU2" secondAttribute="leading" constant="20" type="default" id="QxS-H8-yuJ"/>
                                             <constraint firstItem="kyg-Mh-tvR" firstAttribute="top" secondItem="GCI-Ts-jU2" secondAttribute="top" constant="11" id="bf4-t1-SQ8"/>
+                                            <constraint firstItem="Zzw-Gc-5Bb" firstAttribute="top" secondItem="GCI-Ts-jU2" secondAttribute="top" type="user" id="mc9-pF-iIn"/>
                                             <constraint firstAttribute="trailing" secondItem="ZnI-GS-eWg" secondAttribute="trailing" constant="30" type="user" id="uUf-lI-LPb"/>
+                                            <constraint firstItem="Zzw-Gc-5Bb" firstAttribute="leading" secondItem="GCI-Ts-jU2" secondAttribute="leading" type="user" id="xQT-hP-4oV"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zzw-Gc-5Bb" secondAttribute="trailing" type="user" id="xr0-vM-3dJ"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="8lv-IE-6gi" kind="push" identifier="showSelectPrinterSegue" id="jow-pc-bB0"/>
@@ -441,9 +450,25 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Print" id="RAY-wn-f6Z">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7zz-mU-nqf"/>
-                        <barButtonItem key="rightBarButtonItem" title="Print" style="done" id="tat-tM-7Ma"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7zz-mU-nqf">
+                            <connections>
+                                <action selector="cancel:" destination="t50-rs-HAK" id="XyA-VK-jPQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Print" style="done" id="tat-tM-7Ma">
+                            <connections>
+                                <action selector="print:" destination="t50-rs-HAK" id="oZb-Kx-MWh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameLabel" destination="0wk-Pc-W4o" id="vh5-m0-ytu"/>
+                        <outlet property="pagesLabel" destination="n1J-vg-vL5" id="aHh-Ob-ShI"/>
+                        <outlet property="previewImageView" destination="vWP-55-WxD" id="57j-dZ-gyB"/>
+                        <outlet property="printerSelectionSeparatorView" destination="Zzw-Gc-5Bb" id="F0x-9Q-y0i"/>
+                        <outlet property="quotaLabel" destination="fPe-7M-2L3" id="1V0-Tn-uzk"/>
+                        <outlet property="selectedPrinterNameLabel" destination="ZnI-GS-eWg" id="eVm-Q1-80e"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jne-MJ-dRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -565,7 +590,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="7TM-mf-CDs">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a printer…" id="7TM-mf-CDs">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -677,6 +702,22 @@
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PRIPrintViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRIPrintViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="print:"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pagesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="previewImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="printerSelectionSeparatorView" candidateClass="SSLineView"/>
+                <relationship kind="outlet" name="quotaLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="selectedPrinterNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SSLineView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSLineView.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

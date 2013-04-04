@@ -36,6 +36,7 @@
 		9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD963C170DFF65006E061A /* UIImageView+AFNetworking.m */; };
 		9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */; };
 		9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */; };
+		9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9668170E0331006E061A /* PRIPrintViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,9 @@
 		9CFD9660170E0225006E061A /* CDKittMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDKittMacros.h; sourceTree = "<group>"; };
 		9CFD9661170E0225006E061A /* NSFileManager+CDKitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CDKitt.h"; sourceTree = "<group>"; };
 		9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CDKitt.m"; sourceTree = "<group>"; };
+		9CFD9667170E0331006E061A /* PRIPrintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrintViewController.h; sourceTree = "<group>"; };
+		9CFD9668170E0331006E061A /* PRIPrintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrintViewController.m; sourceTree = "<group>"; };
+		9CFD966A170E0AC8006E061A /* PRIPrintViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRIPrintViewControllerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 				9CE4C0DF170DFC4700DA04D9 /* Models */,
 				9CE4C0DE170DFC4000DA04D9 /* Views */,
 				9CE4C0D6170CE75F00DA04D9 /* View Controllers */,
+				9CFD966B170E0AD1006E061A /* Protocols */,
 				9CE4C0B0170CE6AE00DA04D9 /* Supporting Files */,
 			);
 			path = Prismatic;
@@ -222,6 +227,8 @@
 			children = (
 				9CE4C0C1170CE6AE00DA04D9 /* MainStoryboard_iPhone.storyboard */,
 				9CE4C0C4170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard */,
+				9CFD9667170E0331006E061A /* PRIPrintViewController.h */,
+				9CFD9668170E0331006E061A /* PRIPrintViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -383,6 +390,14 @@
 			path = Vendor/CDKitt;
 			sourceTree = "<group>";
 		};
+		9CFD966B170E0AD1006E061A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD966A170E0AC8006E061A /* PRIPrintViewControllerDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -498,6 +513,7 @@
 				9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */,
 				9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */,
 				9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */,
+				9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
