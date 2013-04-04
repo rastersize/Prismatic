@@ -35,6 +35,7 @@
 		9CFD9644170DFF65006E061A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD963A170DFF65006E061A /* AFXMLRequestOperation.m */; };
 		9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD963C170DFF65006E061A /* UIImageView+AFNetworking.m */; };
 		9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */; };
+		9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,9 @@
 		9CFD965A170DFF98006E061A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		9CFD965C170E00B8006E061A /* UIFont+Prismatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Prismatic.h"; sourceTree = "<group>"; };
 		9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Prismatic.m"; sourceTree = "<group>"; };
+		9CFD9660170E0225006E061A /* CDKittMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDKittMacros.h; sourceTree = "<group>"; };
+		9CFD9661170E0225006E061A /* NSFileManager+CDKitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CDKitt.h"; sourceTree = "<group>"; };
+		9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CDKitt.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFD9629170DFF65006E061A /* AFNetworking */,
+				9CFD965F170E0225006E061A /* CDKitt */,
 				9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */,
 				9CFD9646170DFF98006E061A /* xcconfigs */,
 			);
@@ -365,6 +370,17 @@
 				9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		9CFD965F170E0225006E061A /* CDKitt */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD9660170E0225006E061A /* CDKittMacros.h */,
+				9CFD9661170E0225006E061A /* NSFileManager+CDKitt.h */,
+				9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */,
+			);
+			name = CDKitt;
+			path = Vendor/CDKitt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +497,7 @@
 				9CFD9644170DFF65006E061A /* AFXMLRequestOperation.m in Sources */,
 				9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */,
 				9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */,
+				9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
