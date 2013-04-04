@@ -34,6 +34,7 @@
 		9CFD9643170DFF65006E061A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9638170DFF65006E061A /* AFURLConnectionOperation.m */; };
 		9CFD9644170DFF65006E061A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD963A170DFF65006E061A /* AFXMLRequestOperation.m */; };
 		9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD963C170DFF65006E061A /* UIImageView+AFNetworking.m */; };
+		9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,8 @@
 		9CFD9658170DFF98006E061A /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
 		9CFD9659170DFF98006E061A /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		9CFD965A170DFF98006E061A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		9CFD965C170E00B8006E061A /* UIFont+Prismatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Prismatic.h"; sourceTree = "<group>"; };
+		9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Prismatic.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,7 @@
 		9CE4C0D7170CE77000DA04D9 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				9CFD965B170E00A6006E061A /* Categories */,
 				9CE4C0B8170CE6AE00DA04D9 /* PRIAppDelegate.h */,
 				9CE4C0B9170CE6AE00DA04D9 /* PRIAppDelegate.m */,
 				9CE4C0D8170CF72800DA04D9 /* PRIStyleController.h */,
@@ -354,6 +358,15 @@
 			path = "Mac OS X";
 			sourceTree = "<group>";
 		};
+		9CFD965B170E00A6006E061A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD965C170E00B8006E061A /* UIFont+Prismatic.h */,
+				9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,6 +480,7 @@
 				9CFD9643170DFF65006E061A /* AFURLConnectionOperation.m in Sources */,
 				9CFD9644170DFF65006E061A /* AFXMLRequestOperation.m in Sources */,
 				9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */,
+				9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

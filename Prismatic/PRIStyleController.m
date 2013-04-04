@@ -7,11 +7,7 @@
 //
 
 #import "PRIStyleController.h"
-
-NSString *const kPRIStyleFontFamilyDefault		= @"Avenir Next";
-NSString *const kPRIStyleFontNameDefault		= @"AvenirNext-Regular";
-NSString *const kPRIStyleFontNameDefaultBold	= @"AvenirNext-Bold";
-NSString *const kPRIStyleFontNameDefaultItalic	= @"AvenirNext-Italic";
+#import "UIFont+Prismatic.h"
 
 
 @implementation PRIStyleController
@@ -23,10 +19,10 @@ NSString *const kPRIStyleFontNameDefaultItalic	= @"AvenirNext-Italic";
 
 + (void)applyFontStyles
 {
-//	UIFont *regularFont = [UIFont fontWithName:kPRIStyleFontNameDefault size:UIFont.systemFontSize];
-//	UIFont *boldFont = [UIFont fontWithName:kPRIStyleFontNameDefaultBold size:UIFont.systemFontSize];
-//	UIFont *italicsFont = [UIFont fontWithName:kPRIStyleFontNameDefaultItalic size:UIFont.systemFontSize];
-//	
+//	UIFont *regularFont = [UIFont pri_appFontOfSize:UIFont.systemFontSize];
+//	UIFont *boldFont = [UIFont pri_boldAppFontOfSize:UIFont.systemFontSize];
+//	UIFont *italicsFont = [UIFont pri_italicsAppFontOfSize:UIFont.systemFontSize];
+//
 //	[UILabel.appearance setFont:[regularFont fontWithSize:UIFont.labelFontSize]];
 //	
 //	[[UILabel appearanceWhenContainedIn:UITableViewCell.class, nil] setFont:boldFont];
