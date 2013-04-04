@@ -39,6 +39,7 @@
 		9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9668170E0331006E061A /* PRIPrintViewController.m */; };
 		9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD966D170E0EB7006E061A /* PRITableViewController.m */; };
 		9CFD9671170E10FC006E061A /* PRISourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9670170E10FC006E061A /* PRISourcesViewController.m */; };
+		9CFD9676170E38C9006E061A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD9675170E38C9006E061A /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		9CFD966D170E0EB7006E061A /* PRITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRITableViewController.m; sourceTree = "<group>"; };
 		9CFD966F170E10FC006E061A /* PRISourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRISourcesViewController.h; sourceTree = "<group>"; };
 		9CFD9670170E10FC006E061A /* PRISourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRISourcesViewController.m; sourceTree = "<group>"; };
+		9CFD9675170E38C9006E061A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				9CE4C0AA170CE6AE00DA04D9 /* UIKit.framework in Frameworks */,
 				9CE4C0AC170CE6AE00DA04D9 /* Foundation.framework in Frameworks */,
 				9CE4C0AE170CE6AE00DA04D9 /* CoreGraphics.framework in Frameworks */,
+				9CFD9676170E38C9006E061A /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +277,7 @@
 			children = (
 				9CFD9629170DFF65006E061A /* AFNetworking */,
 				9CFD965F170E0225006E061A /* CDKitt */,
+				9CFD9675170E38C9006E061A /* Crashlytics.framework */,
 				9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */,
 				9CFD9646170DFF98006E061A /* xcconfigs */,
 			);
@@ -418,6 +422,7 @@
 				9CE4C0A2170CE6AE00DA04D9 /* Sources */,
 				9CE4C0A3170CE6AE00DA04D9 /* Frameworks */,
 				9CE4C0A4170CE6AE00DA04D9 /* Resources */,
+				9CFD9672170E3825006E061A /* Run Crashlytics Script */,
 			);
 			buildRules = (
 			);
@@ -503,6 +508,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9CFD9672170E3825006E061A /* Run Crashlytics Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Crashlytics Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Vendor/Crashlytics.framework/run bede20b91f373b5268c4ce52bf52d6a0fbeb391b";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CE4C0A2170CE6AE00DA04D9 /* Sources */ = {
@@ -634,6 +656,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CFD9651170DFF98006E061A /* iOS-Application.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Vendor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
 				HEADER_SEARCH_PATHS = Vendor/SSToolkit;
@@ -652,6 +679,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CFD9651170DFF98006E061A /* iOS-Application.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Vendor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
 				HEADER_SEARCH_PATHS = Vendor/SSToolkit;

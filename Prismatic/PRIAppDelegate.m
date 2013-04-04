@@ -8,11 +8,15 @@
 
 #import "PRIAppDelegate.h"
 #import "PRIStyleController.h"
+#import <Crashlytics/Crashlytics.h>
+
 
 @implementation PRIAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[Crashlytics startWithAPIKey:@"bede20b91f373b5268c4ce52bf52d6a0fbeb391b"];
+	
 	[PRIStyleController applyStyles];
 	
 	NSLog(@"%s: %@", __PRETTY_FUNCTION__, launchOptions);
