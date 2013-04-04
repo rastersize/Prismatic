@@ -37,6 +37,7 @@
 		9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */; };
 		9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */; };
 		9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9668170E0331006E061A /* PRIPrintViewController.m */; };
+		9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD966D170E0EB7006E061A /* PRITableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		9CFD9667170E0331006E061A /* PRIPrintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrintViewController.h; sourceTree = "<group>"; };
 		9CFD9668170E0331006E061A /* PRIPrintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrintViewController.m; sourceTree = "<group>"; };
 		9CFD966A170E0AC8006E061A /* PRIPrintViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRIPrintViewControllerDelegate.h; sourceTree = "<group>"; };
+		9CFD966C170E0EB7006E061A /* PRITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRITableViewController.h; sourceTree = "<group>"; };
+		9CFD966D170E0EB7006E061A /* PRITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRITableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +230,8 @@
 			children = (
 				9CE4C0C1170CE6AE00DA04D9 /* MainStoryboard_iPhone.storyboard */,
 				9CE4C0C4170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard */,
+				9CFD966C170E0EB7006E061A /* PRITableViewController.h */,
+				9CFD966D170E0EB7006E061A /* PRITableViewController.m */,
 				9CFD9667170E0331006E061A /* PRIPrintViewController.h */,
 				9CFD9668170E0331006E061A /* PRIPrintViewController.m */,
 			);
@@ -514,6 +519,7 @@
 				9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */,
 				9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */,
 				9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */,
+				9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
