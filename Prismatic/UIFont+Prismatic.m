@@ -22,19 +22,16 @@ NSString *const kPRIStyleFontNameDefaultItalic	= @"AvenirNext-Italic";
 
 + (instancetype)pri_appFontOfSize:(CGFloat)fontSize
 {
-	NSParameterAssert(fontSize > 0.f);
 	return [self fontWithName:kPRIStyleFontNameDefault size:fontSize];
 }
 
 + (instancetype)pri_boldAppFontOfSize:(CGFloat)fontSize
 {
-	NSParameterAssert(fontSize > 0.f);
 	return [self fontWithName:kPRIStyleFontNameDefaultBold size:fontSize];
 }
 
 + (instancetype)pri_italicsAppFontOfSize:(CGFloat)fontSize
 {
-	NSParameterAssert(fontSize > 0.f);
 	return [self fontWithName:kPRIStyleFontNameDefaultItalic size:fontSize];
 }
 

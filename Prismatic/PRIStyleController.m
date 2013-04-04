@@ -19,13 +19,13 @@
 
 + (void)applyFontStyles
 {
-//	UIFont *regularFont = [UIFont pri_appFontOfSize:UIFont.systemFontSize];
-//	UIFont *boldFont = [UIFont pri_boldAppFontOfSize:UIFont.systemFontSize];
-//	UIFont *italicsFont = [UIFont pri_italicsAppFontOfSize:UIFont.systemFontSize];
-//
-//	[UILabel.appearance setFont:[regularFont fontWithSize:UIFont.labelFontSize]];
-//	
-//	[[UILabel appearanceWhenContainedIn:UITableViewCell.class, nil] setFont:boldFont];
+//	UIFont *regularFont = [UIFont pri_appFontOfSize:0.f];
+	UIFont *boldFont = [UIFont pri_boldAppFontOfSize:0.f];
+//	UIFont *italicsFont = [UIFont pri_italicsAppFontOfSize:0.f];
+	
+	// Navigation bars
+	[UIBarButtonItem.appearance setTitleTextAttributes:@{ UITextAttributeFont: boldFont } forState:0];
+	[UINavigationBar.appearance setTitleTextAttributes:@{ UITextAttributeFont: boldFont }];
 }
 
 @end
