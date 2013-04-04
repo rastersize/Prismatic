@@ -21,8 +21,49 @@
 		9CE4C0D3170CE73F00DA04D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0D2170CE73F00DA04D9 /* SystemConfiguration.framework */; };
 		9CE4C0D5170CE74400DA04D9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0D4170CE74400DA04D9 /* MobileCoreServices.framework */; };
 		9CE4C0DA170CF72800DA04D9 /* PRIStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4C0D9170CF72800DA04D9 /* PRIStyleController.m */; };
-		9CE4C0E2170DFC5A00DA04D9 /* PRILineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4C0E1170DFC5A00DA04D9 /* PRILineView.m */; };
+		9CE4C0E5170DFDBA00DA04D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0E4170DFDBA00DA04D9 /* QuartzCore.framework */; };
+		9CE4C0E7170DFDC100DA04D9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0E6170DFDC100DA04D9 /* MessageUI.framework */; };
+		9CE4C0F9170DFE0400DA04D9 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0F0170DFDF300DA04D9 /* libSSToolkit.a */; };
+		9CE4C0FA170DFE1700DA04D9 /* SSToolkitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9CE4C0F4170DFDF300DA04D9 /* SSToolkitResources.bundle */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9CE4C0EF170DFDF300DA04D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		9CE4C0F1170DFDF300DA04D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
+			remoteInfo = SSToolkitTests;
+		};
+		9CE4C0F3170DFDF300DA04D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2C507EA151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+		9CE4C0F5170DFDFA00DA04D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		9CE4C0F7170DFDFF00DA04D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B2C507E9151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9CE4C0A6170CE6AE00DA04D9 /* Prismatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prismatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,8 +85,9 @@
 		9CE4C0D4170CE74400DA04D9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9CE4C0D8170CF72800DA04D9 /* PRIStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIStyleController.h; sourceTree = "<group>"; };
 		9CE4C0D9170CF72800DA04D9 /* PRIStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIStyleController.m; sourceTree = "<group>"; };
-		9CE4C0E0170DFC5A00DA04D9 /* PRILineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRILineView.h; sourceTree = "<group>"; };
-		9CE4C0E1170DFC5A00DA04D9 /* PRILineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRILineView.m; sourceTree = "<group>"; };
+		9CE4C0E4170DFDBA00DA04D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9CE4C0E6170DFDC100DA04D9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CE4C0F9170DFE0400DA04D9 /* libSSToolkit.a in Frameworks */,
+				9CE4C0E7170DFDC100DA04D9 /* MessageUI.framework in Frameworks */,
+				9CE4C0E5170DFDBA00DA04D9 /* QuartzCore.framework in Frameworks */,
 				9CE4C0D5170CE74400DA04D9 /* MobileCoreServices.framework in Frameworks */,
 				9CE4C0D3170CE73F00DA04D9 /* SystemConfiguration.framework in Frameworks */,
 				9CE4C0AA170CE6AE00DA04D9 /* UIKit.framework in Frameworks */,
@@ -68,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				9CE4C0AF170CE6AE00DA04D9 /* Prismatic */,
+				9CE4C0E8170DFDE200DA04D9 /* Vendor */,
 				9CE4C0A8170CE6AE00DA04D9 /* Frameworks */,
 				9CE4C0A7170CE6AE00DA04D9 /* Products */,
 			);
@@ -84,6 +130,8 @@
 		9CE4C0A8170CE6AE00DA04D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CE4C0E6170DFDC100DA04D9 /* MessageUI.framework */,
+				9CE4C0E4170DFDBA00DA04D9 /* QuartzCore.framework */,
 				9CE4C0D4170CE74400DA04D9 /* MobileCoreServices.framework */,
 				9CE4C0D2170CE73F00DA04D9 /* SystemConfiguration.framework */,
 				9CE4C0A9170CE6AE00DA04D9 /* UIKit.framework */,
@@ -142,8 +190,6 @@
 		9CE4C0DE170DFC4000DA04D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9CE4C0E0170DFC5A00DA04D9 /* PRILineView.h */,
-				9CE4C0E1170DFC5A00DA04D9 /* PRILineView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -153,6 +199,24 @@
 			children = (
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		9CE4C0E8170DFDE200DA04D9 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		9CE4C0EA170DFDF200DA04D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0F0170DFDF300DA04D9 /* libSSToolkit.a */,
+				9CE4C0F2170DFDF300DA04D9 /* SSToolkitTests.app */,
+				9CE4C0F4170DFDF300DA04D9 /* SSToolkitResources.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +233,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				9CE4C0F8170DFDFF00DA04D9 /* PBXTargetDependency */,
+				9CE4C0F6170DFDFA00DA04D9 /* PBXTargetDependency */,
 			);
 			name = Prismatic;
 			productName = Prismatic;
@@ -195,6 +261,12 @@
 			mainGroup = 9CE4C09D170CE6AE00DA04D9;
 			productRefGroup = 9CE4C0A7170CE6AE00DA04D9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9CE4C0EA170DFDF200DA04D9 /* Products */;
+					ProjectRef = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9CE4C0A5170CE6AE00DA04D9 /* Prismatic */,
@@ -202,11 +274,36 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		9CE4C0F0170DFDF300DA04D9 /* libSSToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSToolkit.a;
+			remoteRef = 9CE4C0EF170DFDF300DA04D9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CE4C0F2170DFDF300DA04D9 /* SSToolkitTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SSToolkitTests.app;
+			remoteRef = 9CE4C0F1170DFDF300DA04D9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CE4C0F4170DFDF300DA04D9 /* SSToolkitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSToolkitResources.bundle;
+			remoteRef = 9CE4C0F3170DFDF300DA04D9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		9CE4C0A4170CE6AE00DA04D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CE4C0FA170DFE1700DA04D9 /* SSToolkitResources.bundle in Resources */,
 				9CE4C0B4170CE6AE00DA04D9 /* InfoPlist.strings in Resources */,
 				9CE4C0BC170CE6AE00DA04D9 /* Default.png in Resources */,
 				9CE4C0BE170CE6AE00DA04D9 /* Default@2x.png in Resources */,
@@ -226,11 +323,23 @@
 				9CE4C0B6170CE6AE00DA04D9 /* main.m in Sources */,
 				9CE4C0BA170CE6AE00DA04D9 /* PRIAppDelegate.m in Sources */,
 				9CE4C0DA170CF72800DA04D9 /* PRIStyleController.m in Sources */,
-				9CE4C0E2170DFC5A00DA04D9 /* PRILineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CE4C0F6170DFDFA00DA04D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkit;
+			targetProxy = 9CE4C0F5170DFDFA00DA04D9 /* PBXContainerItemProxy */;
+		};
+		9CE4C0F8170DFDFF00DA04D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkitResources;
+			targetProxy = 9CE4C0F7170DFDFF00DA04D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9CE4C0B2170CE6AE00DA04D9 /* InfoPlist.strings */ = {
@@ -323,7 +432,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
+				HEADER_SEARCH_PATHS = Vendor/SSToolkit;
 				INFOPLIST_FILE = "Prismatic/Prismatic-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -334,7 +448,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
+				HEADER_SEARCH_PATHS = Vendor/SSToolkit;
 				INFOPLIST_FILE = "Prismatic/Prismatic-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
