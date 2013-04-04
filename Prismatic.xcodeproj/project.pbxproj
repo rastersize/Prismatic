@@ -40,6 +40,7 @@
 		9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD966D170E0EB7006E061A /* PRITableViewController.m */; };
 		9CFD9671170E10FC006E061A /* PRISourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9670170E10FC006E061A /* PRISourcesViewController.m */; };
 		9CFD9676170E38C9006E061A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD9675170E38C9006E061A /* Crashlytics.framework */; };
+		9CFD9690170E4069006E061A /* UIImage+PRIAppImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD968F170E4069006E061A /* UIImage+PRIAppImages.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B2C507E9151BA64400E94614;
 			remoteInfo = SSToolkitResources;
+		};
+		9CFD968C170E402D006E061A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CE4C09E170CE6AE00DA04D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CFD9688170E4018006E061A;
+			remoteInfo = "Image Script";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -150,6 +158,8 @@
 		9CFD966F170E10FC006E061A /* PRISourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRISourcesViewController.h; sourceTree = "<group>"; };
 		9CFD9670170E10FC006E061A /* PRISourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRISourcesViewController.m; sourceTree = "<group>"; };
 		9CFD9675170E38C9006E061A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = "<group>"; };
+		9CFD968E170E4069006E061A /* UIImage+PRIAppImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PRIAppImages.h"; sourceTree = "<group>"; };
+		9CFD968F170E4069006E061A /* UIImage+PRIAppImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PRIAppImages.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +399,8 @@
 			children = (
 				9CFD965C170E00B8006E061A /* UIFont+Prismatic.h */,
 				9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */,
+				9CFD968E170E4069006E061A /* UIImage+PRIAppImages.h */,
+				9CFD968F170E4069006E061A /* UIImage+PRIAppImages.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -414,6 +426,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		9CFD9688170E4018006E061A /* Image Script */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "\"$(SRCROOT)/Scripts/image.py\" -s \"$(SRCROOT)/Graphics\" -d \"$(SRCROOT)/Prismatic/UIImage+PRIAppImages\" --prefix \"PRI\" --platform \"ios\"";
+			buildConfigurationList = 9CFD9689170E4018006E061A /* Build configuration list for PBXLegacyTarget "Image Script" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/python;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "Image Script";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Image Script";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		9CE4C0A5170CE6AE00DA04D9 /* Prismatic */ = {
 			isa = PBXNativeTarget;
@@ -427,6 +456,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9CFD968D170E402D006E061A /* PBXTargetDependency */,
 				9CE4C0F8170DFDFF00DA04D9 /* PBXTargetDependency */,
 				9CE4C0F6170DFDFA00DA04D9 /* PBXTargetDependency */,
 			);
@@ -464,6 +494,7 @@
 			projectRoot = "";
 			targets = (
 				9CE4C0A5170CE6AE00DA04D9 /* Prismatic */,
+				9CFD9688170E4018006E061A /* Image Script */,
 			);
 		};
 /* End PBXProject section */
@@ -548,6 +579,7 @@
 				9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */,
 				9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */,
 				9CFD9671170E10FC006E061A /* PRISourcesViewController.m in Sources */,
+				9CFD9690170E4069006E061A /* UIImage+PRIAppImages.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +595,11 @@
 			isa = PBXTargetDependency;
 			name = SSToolkitResources;
 			targetProxy = 9CE4C0F7170DFDFF00DA04D9 /* PBXContainerItemProxy */;
+		};
+		9CFD968D170E402D006E061A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CFD9688170E4018006E061A /* Image Script */;
+			targetProxy = 9CFD968C170E402D006E061A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -698,6 +735,38 @@
 			};
 			name = Release;
 		};
+		9CFD968A170E4018006E061A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUGGING_SYMBOLS = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9CFD968B170E4018006E061A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -718,6 +787,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9CFD9689170E4018006E061A /* Build configuration list for PBXLegacyTarget "Image Script" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CFD968A170E4018006E061A /* Debug */,
+				9CFD968B170E4018006E061A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
