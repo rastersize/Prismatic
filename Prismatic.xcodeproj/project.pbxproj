@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9CE4C0AA170CE6AE00DA04D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0A9170CE6AE00DA04D9 /* UIKit.framework */; };
+		9CE4C0AC170CE6AE00DA04D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0AB170CE6AE00DA04D9 /* Foundation.framework */; };
+		9CE4C0AE170CE6AE00DA04D9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0AD170CE6AE00DA04D9 /* CoreGraphics.framework */; };
+		9CE4C0B4170CE6AE00DA04D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE4C0B2170CE6AE00DA04D9 /* InfoPlist.strings */; };
+		9CE4C0B6170CE6AE00DA04D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4C0B5170CE6AE00DA04D9 /* main.m */; };
+		9CE4C0BA170CE6AE00DA04D9 /* PRIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4C0B9170CE6AE00DA04D9 /* PRIAppDelegate.m */; };
+		9CE4C0BC170CE6AE00DA04D9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE4C0BB170CE6AE00DA04D9 /* Default.png */; };
+		9CE4C0BE170CE6AE00DA04D9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE4C0BD170CE6AE00DA04D9 /* Default@2x.png */; };
+		9CE4C0C0170CE6AE00DA04D9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE4C0BF170CE6AE00DA04D9 /* Default-568h@2x.png */; };
+		9CE4C0C3170CE6AE00DA04D9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE4C0C1170CE6AE00DA04D9 /* MainStoryboard_iPhone.storyboard */; };
+		9CE4C0C6170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE4C0C4170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard */; };
+		9CE4C0D3170CE73F00DA04D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0D2170CE73F00DA04D9 /* SystemConfiguration.framework */; };
+		9CE4C0D5170CE74400DA04D9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0D4170CE74400DA04D9 /* MobileCoreServices.framework */; };
+		9CE4C0DA170CF72800DA04D9 /* PRIStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4C0D9170CF72800DA04D9 /* PRIStyleController.m */; };
+		9CE4C0E2170DFC5A00DA04D9 /* PRILineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4C0E1170DFC5A00DA04D9 /* PRILineView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9CE4C0A6170CE6AE00DA04D9 /* Prismatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prismatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CE4C0A9170CE6AE00DA04D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9CE4C0AB170CE6AE00DA04D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9CE4C0AD170CE6AE00DA04D9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9CE4C0B1170CE6AE00DA04D9 /* Prismatic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Prismatic-Info.plist"; sourceTree = "<group>"; };
+		9CE4C0B3170CE6AE00DA04D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9CE4C0B5170CE6AE00DA04D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9CE4C0B7170CE6AE00DA04D9 /* Prismatic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Prismatic-Prefix.pch"; sourceTree = "<group>"; };
+		9CE4C0B8170CE6AE00DA04D9 /* PRIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRIAppDelegate.h; sourceTree = "<group>"; };
+		9CE4C0B9170CE6AE00DA04D9 /* PRIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRIAppDelegate.m; sourceTree = "<group>"; };
+		9CE4C0BB170CE6AE00DA04D9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9CE4C0BD170CE6AE00DA04D9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9CE4C0BF170CE6AE00DA04D9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9CE4C0C2170CE6AE00DA04D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		9CE4C0C5170CE6AE00DA04D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		9CE4C0D2170CE73F00DA04D9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9CE4C0D4170CE74400DA04D9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9CE4C0D8170CF72800DA04D9 /* PRIStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIStyleController.h; sourceTree = "<group>"; };
+		9CE4C0D9170CF72800DA04D9 /* PRIStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIStyleController.m; sourceTree = "<group>"; };
+		9CE4C0E0170DFC5A00DA04D9 /* PRILineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRILineView.h; sourceTree = "<group>"; };
+		9CE4C0E1170DFC5A00DA04D9 /* PRILineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRILineView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CE4C0A3170CE6AE00DA04D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CE4C0D5170CE74400DA04D9 /* MobileCoreServices.framework in Frameworks */,
+				9CE4C0D3170CE73F00DA04D9 /* SystemConfiguration.framework in Frameworks */,
+				9CE4C0AA170CE6AE00DA04D9 /* UIKit.framework in Frameworks */,
+				9CE4C0AC170CE6AE00DA04D9 /* Foundation.framework in Frameworks */,
+				9CE4C0AE170CE6AE00DA04D9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9CE4C09D170CE6AE00DA04D9 = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0AF170CE6AE00DA04D9 /* Prismatic */,
+				9CE4C0A8170CE6AE00DA04D9 /* Frameworks */,
+				9CE4C0A7170CE6AE00DA04D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9CE4C0A7170CE6AE00DA04D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0A6170CE6AE00DA04D9 /* Prismatic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CE4C0A8170CE6AE00DA04D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0D4170CE74400DA04D9 /* MobileCoreServices.framework */,
+				9CE4C0D2170CE73F00DA04D9 /* SystemConfiguration.framework */,
+				9CE4C0A9170CE6AE00DA04D9 /* UIKit.framework */,
+				9CE4C0AB170CE6AE00DA04D9 /* Foundation.framework */,
+				9CE4C0AD170CE6AE00DA04D9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CE4C0AF170CE6AE00DA04D9 /* Prismatic */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0D7170CE77000DA04D9 /* Generic */,
+				9CE4C0DF170DFC4700DA04D9 /* Models */,
+				9CE4C0DE170DFC4000DA04D9 /* Views */,
+				9CE4C0D6170CE75F00DA04D9 /* View Controllers */,
+				9CE4C0B0170CE6AE00DA04D9 /* Supporting Files */,
+			);
+			path = Prismatic;
+			sourceTree = "<group>";
+		};
+		9CE4C0B0170CE6AE00DA04D9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0B1170CE6AE00DA04D9 /* Prismatic-Info.plist */,
+				9CE4C0B2170CE6AE00DA04D9 /* InfoPlist.strings */,
+				9CE4C0B5170CE6AE00DA04D9 /* main.m */,
+				9CE4C0B7170CE6AE00DA04D9 /* Prismatic-Prefix.pch */,
+				9CE4C0BB170CE6AE00DA04D9 /* Default.png */,
+				9CE4C0BD170CE6AE00DA04D9 /* Default@2x.png */,
+				9CE4C0BF170CE6AE00DA04D9 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CE4C0D6170CE75F00DA04D9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0C1170CE6AE00DA04D9 /* MainStoryboard_iPhone.storyboard */,
+				9CE4C0C4170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9CE4C0D7170CE77000DA04D9 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0B8170CE6AE00DA04D9 /* PRIAppDelegate.h */,
+				9CE4C0B9170CE6AE00DA04D9 /* PRIAppDelegate.m */,
+				9CE4C0D8170CF72800DA04D9 /* PRIStyleController.h */,
+				9CE4C0D9170CF72800DA04D9 /* PRIStyleController.m */,
+			);
+			name = Generic;
+			sourceTree = "<group>";
+		};
+		9CE4C0DE170DFC4000DA04D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CE4C0E0170DFC5A00DA04D9 /* PRILineView.h */,
+				9CE4C0E1170DFC5A00DA04D9 /* PRILineView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9CE4C0DF170DFC4700DA04D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9CE4C0A5170CE6AE00DA04D9 /* Prismatic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CE4C0CF170CE6AE00DA04D9 /* Build configuration list for PBXNativeTarget "Prismatic" */;
+			buildPhases = (
+				9CE4C0A2170CE6AE00DA04D9 /* Sources */,
+				9CE4C0A3170CE6AE00DA04D9 /* Frameworks */,
+				9CE4C0A4170CE6AE00DA04D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Prismatic;
+			productName = Prismatic;
+			productReference = 9CE4C0A6170CE6AE00DA04D9 /* Prismatic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CE4C09E170CE6AE00DA04D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PRI;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Aron Cedercrantz";
+			};
+			buildConfigurationList = 9CE4C0A1170CE6AE00DA04D9 /* Build configuration list for PBXProject "Prismatic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9CE4C09D170CE6AE00DA04D9;
+			productRefGroup = 9CE4C0A7170CE6AE00DA04D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CE4C0A5170CE6AE00DA04D9 /* Prismatic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CE4C0A4170CE6AE00DA04D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CE4C0B4170CE6AE00DA04D9 /* InfoPlist.strings in Resources */,
+				9CE4C0BC170CE6AE00DA04D9 /* Default.png in Resources */,
+				9CE4C0BE170CE6AE00DA04D9 /* Default@2x.png in Resources */,
+				9CE4C0C0170CE6AE00DA04D9 /* Default-568h@2x.png in Resources */,
+				9CE4C0C3170CE6AE00DA04D9 /* MainStoryboard_iPhone.storyboard in Resources */,
+				9CE4C0C6170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CE4C0A2170CE6AE00DA04D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CE4C0B6170CE6AE00DA04D9 /* main.m in Sources */,
+				9CE4C0BA170CE6AE00DA04D9 /* PRIAppDelegate.m in Sources */,
+				9CE4C0DA170CF72800DA04D9 /* PRIStyleController.m in Sources */,
+				9CE4C0E2170DFC5A00DA04D9 /* PRILineView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9CE4C0B2170CE6AE00DA04D9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CE4C0B3170CE6AE00DA04D9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9CE4C0C1170CE6AE00DA04D9 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CE4C0C2170CE6AE00DA04D9 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		9CE4C0C4170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CE4C0C5170CE6AE00DA04D9 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9CE4C0CD170CE6AE00DA04D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9CE4C0CE170CE6AE00DA04D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CE4C0D0170CE6AE00DA04D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
+				INFOPLIST_FILE = "Prismatic/Prismatic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9CE4C0D1170CE6AE00DA04D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
+				INFOPLIST_FILE = "Prismatic/Prismatic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CE4C0A1170CE6AE00DA04D9 /* Build configuration list for PBXProject "Prismatic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CE4C0CD170CE6AE00DA04D9 /* Debug */,
+				9CE4C0CE170CE6AE00DA04D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CE4C0CF170CE6AE00DA04D9 /* Build configuration list for PBXNativeTarget "Prismatic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CE4C0D0170CE6AE00DA04D9 /* Debug */,
+				9CE4C0D1170CE6AE00DA04D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9CE4C09E170CE6AE00DA04D9 /* Project object */;
+}
