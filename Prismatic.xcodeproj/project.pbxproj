@@ -116,6 +116,21 @@
 		9CFD963A170DFF65006E061A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		9CFD963B170DFF65006E061A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		9CFD963C170DFF65006E061A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		9CFD9648170DFF98006E061A /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		9CFD964A170DFF98006E061A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		9CFD964B170DFF98006E061A /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Profile.xcconfig; sourceTree = "<group>"; };
+		9CFD964C170DFF98006E061A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		9CFD964E170DFF98006E061A /* Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Application.xcconfig; sourceTree = "<group>"; };
+		9CFD964F170DFF98006E061A /* StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = StaticLibrary.xcconfig; sourceTree = "<group>"; };
+		9CFD9651170DFF98006E061A /* iOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Application.xcconfig"; sourceTree = "<group>"; };
+		9CFD9652170DFF98006E061A /* iOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Base.xcconfig"; sourceTree = "<group>"; };
+		9CFD9653170DFF98006E061A /* iOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		9CFD9655170DFF98006E061A /* Mac-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Application.xcconfig"; sourceTree = "<group>"; };
+		9CFD9656170DFF98006E061A /* Mac-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Base.xcconfig"; sourceTree = "<group>"; };
+		9CFD9657170DFF98006E061A /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
+		9CFD9658170DFF98006E061A /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
+		9CFD9659170DFF98006E061A /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		9CFD965A170DFF98006E061A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +249,7 @@
 			children = (
 				9CFD9629170DFF65006E061A /* AFNetworking */,
 				9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */,
+				9CFD9646170DFF98006E061A /* xcconfigs */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -273,6 +289,69 @@
 			);
 			name = AFNetworking;
 			path = Vendor/AFNetworking/AFNetworking;
+			sourceTree = "<group>";
+		};
+		9CFD9646170DFF98006E061A /* xcconfigs */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD9647170DFF98006E061A /* Base */,
+				9CFD9650170DFF98006E061A /* iOS */,
+				9CFD9654170DFF98006E061A /* Mac OS X */,
+				9CFD965A170DFF98006E061A /* README.md */,
+			);
+			name = xcconfigs;
+			path = Vendor/xcconfigs;
+			sourceTree = "<group>";
+		};
+		9CFD9647170DFF98006E061A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD9648170DFF98006E061A /* Common.xcconfig */,
+				9CFD9649170DFF98006E061A /* Configurations */,
+				9CFD964D170DFF98006E061A /* Targets */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9CFD9649170DFF98006E061A /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD964A170DFF98006E061A /* Debug.xcconfig */,
+				9CFD964B170DFF98006E061A /* Profile.xcconfig */,
+				9CFD964C170DFF98006E061A /* Release.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		9CFD964D170DFF98006E061A /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD964E170DFF98006E061A /* Application.xcconfig */,
+				9CFD964F170DFF98006E061A /* StaticLibrary.xcconfig */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		9CFD9650170DFF98006E061A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD9651170DFF98006E061A /* iOS-Application.xcconfig */,
+				9CFD9652170DFF98006E061A /* iOS-Base.xcconfig */,
+				9CFD9653170DFF98006E061A /* iOS-StaticLibrary.xcconfig */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		9CFD9654170DFF98006E061A /* Mac OS X */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD9655170DFF98006E061A /* Mac-Application.xcconfig */,
+				9CFD9656170DFF98006E061A /* Mac-Base.xcconfig */,
+				9CFD9657170DFF98006E061A /* Mac-DynamicLibrary.xcconfig */,
+				9CFD9658170DFF98006E061A /* Mac-Framework.xcconfig */,
+				9CFD9659170DFF98006E061A /* Mac-StaticLibrary.xcconfig */,
+			);
+			path = "Mac OS X";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +573,7 @@
 		};
 		9CE4C0D0170CE6AE00DA04D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CFD9651170DFF98006E061A /* iOS-Application.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
@@ -504,12 +584,14 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		9CE4C0D1170CE6AE00DA04D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CFD9651170DFF98006E061A /* iOS-Application.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
@@ -520,6 +602,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

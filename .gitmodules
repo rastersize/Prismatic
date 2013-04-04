@@ -4,3 +4,6 @@
 [submodule "Vendor/AFNetworking"]
 	path = Vendor/AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "Vendor/xcconfigs"]
+	path = Vendor/xcconfigs
+	url = https://github.com/jspahrsummers/xcconfigs.git
