@@ -23,4 +23,11 @@
 	footerView.textLabel.font = [UIFont pri_appFontOfSize:footerView.textLabel.font.pointSize];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	cell.textLabel.font = [UIFont pri_boldAppFontOfSize:cell.textLabel.font.pointSize];
+	cell.detailTextLabel.font = [UIFont pri_appFontOfSize:cell.detailTextLabel.font.pointSize];
+}
+
+
 @end
