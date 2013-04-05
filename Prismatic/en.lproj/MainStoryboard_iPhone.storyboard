@@ -620,20 +620,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="aos-kb-1072-laser1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwy-F9-5b4">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Printer type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3R-vW-UCw">
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                             <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Arkitekt, rum 2234" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sd-5f-k7R">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="114" id="jbW-ro-wMK"/>
+                                                <constraint firstAttribute="width" constant="119" id="XmS-u5-xtQ"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                             <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -642,13 +642,14 @@
                                 </view>
                                 <constraints>
                                     <constraint firstItem="4Sd-5f-k7R" firstAttribute="trailing" secondItem="i3R-vW-UCw" secondAttribute="trailing" type="user" id="8UX-CV-1pm"/>
+                                    <constraint firstItem="nwy-F9-5b4" firstAttribute="centerY" secondItem="4Sd-5f-k7R" secondAttribute="centerY" type="default" id="CaD-2i-t0T"/>
                                     <constraint firstItem="i3R-vW-UCw" firstAttribute="leading" secondItem="nwy-F9-5b4" secondAttribute="leading" type="default" id="KXM-Wl-6ct"/>
                                     <constraint firstItem="nwy-F9-5b4" firstAttribute="leading" secondItem="qC9-zc-fRc" secondAttribute="leading" constant="10" type="user" id="PA8-Op-m7h"/>
                                     <constraint firstItem="4Sd-5f-k7R" firstAttribute="leading" secondItem="nwy-F9-5b4" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="TYz-iP-3Ub"/>
-                                    <constraint firstItem="4Sd-5f-k7R" firstAttribute="baseline" secondItem="nwy-F9-5b4" secondAttribute="baseline" type="user" id="Y48-HU-dAF"/>
-                                    <constraint firstItem="nwy-F9-5b4" firstAttribute="top" secondItem="qC9-zc-fRc" secondAttribute="top" constant="2" type="user" id="a4g-Dv-ZLF"/>
+                                    <constraint firstItem="nwy-F9-5b4" firstAttribute="top" secondItem="qC9-zc-fRc" secondAttribute="top" constant="2" type="user" id="XLt-fr-ZyE"/>
                                     <constraint firstAttribute="trailing" secondItem="i3R-vW-UCw" secondAttribute="trailing" constant="10" type="user" id="mM5-JM-CPJ"/>
                                     <constraint firstAttribute="bottom" secondItem="i3R-vW-UCw" secondAttribute="bottom" constant="2" type="user" id="xaI-bn-vrc"/>
+                                    <constraint firstItem="4Sd-5f-k7R" firstAttribute="baseline" secondItem="nwy-F9-5b4" secondAttribute="baseline" type="default" id="zya-D8-N4t"/>
                                 </constraints>
                             </tableViewCell>
                         </prototypes>
@@ -673,7 +674,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2347" y="-260"/>
+            <point key="canvasLocation" x="2111" y="-259"/>
         </scene>
         <!--Table View Controller - Print History-->
         <scene sceneID="Dxd-EO-lXM">
@@ -816,6 +817,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jow-pc-bB0"/>
+        <segue reference="kVV-UO-LG4"/>
     </inferredMetricsTieBreakers>
 </document>
