@@ -19,7 +19,7 @@
 	
 	[PRIStyleController applyStyles];
 	
-	NSLog(@"%s: %@", __PRETTY_FUNCTION__, launchOptions);
+	DLog(@"%@", launchOptions);
 	
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
 		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -29,13 +29,7 @@
 	
 	return YES;
 }
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-	NSLog(@"%s: url = %@; sourceApp: %@; annotation: %@", __PRETTY_FUNCTION__, url, sourceApplication, annotation);
-	return NO;
-}
-							
+					
 - (void)applicationWillResignActive:(UIApplication *)application
 {
 	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -61,6 +55,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+	DLog(@"url = %@; sourceApp: %@; annotation: %@", url, sourceApplication, annotation);
+	
+	return NO;
 }
 
 @end
