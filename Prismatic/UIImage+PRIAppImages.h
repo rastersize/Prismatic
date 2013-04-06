@@ -7,10 +7,12 @@
 
 @interface UIImage (PRIAppImages)
 
-+ (instancetype)pri_sourceDropbox;
 + (instancetype)pri_sourceWebsite;
++ (instancetype)pri_sourcePhotoLibrary;
++ (instancetype)pri_sourceDropbox;
++ (instancetype)pri_printTableFooter;
 + (instancetype)pri_navPrintQueueTemplate;
 + (instancetype)pri_navSettingsTemplate;
-+ (instancetype)pri_sourcePhotoLibrary;
++ (instancetype)pri_printTableHeader;
 
 @end

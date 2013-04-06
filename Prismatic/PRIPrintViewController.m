@@ -33,7 +33,21 @@
 {
     [super viewDidLoad];
 	
-	self.printerSelectionSeparatorView.insetColor = nil;
+	CGFloat greyComponent = (154.f/256.f);
+	UIColor *printerSelectionSeparatorLineColor = [UIColor colorWithRed:greyComponent green:greyComponent blue:greyComponent alpha:1.f];
+	self.printerSelectionTopSeparatorView.lineColor = printerSelectionSeparatorLineColor;
+	self.printerSelectionBottomSeparatorView.lineColor = printerSelectionSeparatorLineColor;
+	
+	self.printerSelectionTopSeparatorView.insetColor = nil;
+	self.printerSelectionBottomSeparatorView.insetColor = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
+	UIEdgeInsets currentInset = self.tableView.contentInset;
+	self.tableView.contentInset = UIEdgeInsetsMake(-CGRectGetHeight(self.tableView.tableHeaderView.bounds), currentInset.left, currentInset.bottom, currentInset.right);
 }
 
 - (void)didReceiveMemoryWarning

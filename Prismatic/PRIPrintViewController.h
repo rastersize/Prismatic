@@ -32,7 +32,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *quotaLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedPrinterNameLabel;
-@property (weak, nonatomic) IBOutlet SSLineView *printerSelectionSeparatorView;
+@property (weak, nonatomic) IBOutlet SSLineView *printerSelectionTopSeparatorView;
+@property (weak, nonatomic) IBOutlet SSLineView *printerSelectionBottomSeparatorView;
 
 
 #pragma mark - Actions

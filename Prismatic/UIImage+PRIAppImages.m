@@ -9,10 +9,12 @@
 
 @implementation UIImage (PRIAppImages)
 
-+ (instancetype)pri_sourceDropbox { id image = [[self class] imageNamed:@"source-dropbox"]; ZAssert(image, @"Image source-dropbox not found"); return image; }
 + (instancetype)pri_sourceWebsite { id image = [[self class] imageNamed:@"source-website"]; ZAssert(image, @"Image source-website not found"); return image; }
++ (instancetype)pri_sourcePhotoLibrary { id image = [[self class] imageNamed:@"source-photo-library"]; ZAssert(image, @"Image source-photo-library not found"); return image; }
++ (instancetype)pri_sourceDropbox { id image = [[self class] imageNamed:@"source-dropbox"]; ZAssert(image, @"Image source-dropbox not found"); return image; }
++ (instancetype)pri_printTableFooter { id image = [[self class] imageNamed:@"print-table-footer"]; ZAssert(image, @"Image print-table-footer not found"); return image; }
 + (instancetype)pri_navPrintQueueTemplate { id image = [[self class] imageNamed:@"nav-print-queue-template"]; ZAssert(image, @"Image nav-print-queue-template not found"); return image; }
 + (instancetype)pri_navSettingsTemplate { id image = [[self class] imageNamed:@"nav-settings-template"]; ZAssert(image, @"Image nav-settings-template not found"); return image; }
-+ (instancetype)pri_sourcePhotoLibrary { id image = [[self class] imageNamed:@"source-photo-library"]; ZAssert(image, @"Image source-photo-library not found"); return image; }
++ (instancetype)pri_printTableHeader { id image = [[self class] imageNamed:@"print-table-header"]; ZAssert(image, @"Image print-table-header not found"); return image; }
 
 @end
