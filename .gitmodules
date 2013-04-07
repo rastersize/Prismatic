@@ -7,3 +7,6 @@
 [submodule "Vendor/xcconfigs"]
 	path = Vendor/xcconfigs
 	url = https://github.com/jspahrsummers/xcconfigs.git
+[submodule "Vendor/Mantle"]
+	path = Vendor/Mantle
+	url = https://github.com/github/Mantle.git

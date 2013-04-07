@@ -55,6 +55,12 @@
 		9CFD96B1170F1517006E061A /* print-table-footer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD96AF170F1517006E061A /* print-table-footer@2x.png */; };
 		9CFD96B517104C95006E061A /* print-table-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD96B317104C95006E061A /* print-table-header.png */; };
 		9CFD96B617104C95006E061A /* print-table-header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD96B417104C95006E061A /* print-table-header@2x.png */; };
+		9CFD96B917104E67006E061A /* PRIPrintClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD96B817104E67006E061A /* PRIPrintClient.m */; };
+		9CFD96BC1710551A006E061A /* PRIPrintersAvailableParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD96BB1710551A006E061A /* PRIPrintersAvailableParseOperation.m */; };
+		9CFD96D317106112006E061A /* PRIPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD96D217106112006E061A /* PRIPrinter.m */; };
+		9CFD96D41710692F006E061A /* libMantle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD96CB171060D4006E061A /* libMantle.a */; };
+		9CFD96D717106A34006E061A /* PRIPrintersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD96D617106A34006E061A /* PRIPrintersViewController.m */; };
+		9CFD96DA17106CFE006E061A /* PRIPrinterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD96D917106CFE006E061A /* PRIPrinterTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +105,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9CFD9688170E4018006E061A;
 			remoteInfo = "Image Script";
+		};
+		9CFD96C6171060D4006E061A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CFD96BD171060D3006E061A /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC3C15F72B23004E8054;
+			remoteInfo = "Mantle Mac";
+		};
+		9CFD96C8171060D4006E061A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CFD96BD171060D3006E061A /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC5415F72B23004E8054;
+			remoteInfo = "Mantle Mac Tests";
+		};
+		9CFD96CA171060D4006E061A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CFD96BD171060D3006E061A /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC7915F72BC7004E8054;
+			remoteInfo = "Mantle iOS";
+		};
+		9CFD96CC171060D4006E061A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CFD96BD171060D3006E061A /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC8715F72BC7004E8054;
+			remoteInfo = "Mantle iOS Tests";
+		};
+		9CFD96CE171060E8006E061A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CFD96BD171060D3006E061A /* Mantle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D042FC7815F72BC7004E8054;
+			remoteInfo = "Mantle iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -188,6 +229,17 @@
 		9CFD96AF170F1517006E061A /* print-table-footer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "print-table-footer@2x.png"; sourceTree = "<group>"; };
 		9CFD96B317104C95006E061A /* print-table-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "print-table-header.png"; sourceTree = "<group>"; };
 		9CFD96B417104C95006E061A /* print-table-header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "print-table-header@2x.png"; sourceTree = "<group>"; };
+		9CFD96B717104E67006E061A /* PRIPrintClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrintClient.h; sourceTree = "<group>"; };
+		9CFD96B817104E67006E061A /* PRIPrintClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrintClient.m; sourceTree = "<group>"; };
+		9CFD96BA1710551A006E061A /* PRIPrintersAvailableParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrintersAvailableParseOperation.h; sourceTree = "<group>"; };
+		9CFD96BB1710551A006E061A /* PRIPrintersAvailableParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrintersAvailableParseOperation.m; sourceTree = "<group>"; };
+		9CFD96BD171060D3006E061A /* Mantle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mantle.xcodeproj; path = Vendor/Mantle/Mantle.xcodeproj; sourceTree = "<group>"; };
+		9CFD96D117106112006E061A /* PRIPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrinter.h; sourceTree = "<group>"; };
+		9CFD96D217106112006E061A /* PRIPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrinter.m; sourceTree = "<group>"; };
+		9CFD96D517106A34006E061A /* PRIPrintersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrintersViewController.h; sourceTree = "<group>"; };
+		9CFD96D617106A34006E061A /* PRIPrintersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrintersViewController.m; sourceTree = "<group>"; };
+		9CFD96D817106CFE006E061A /* PRIPrinterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrinterTableViewCell.h; sourceTree = "<group>"; };
+		9CFD96D917106CFE006E061A /* PRIPrinterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrinterTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFD96D41710692F006E061A /* libMantle.a in Frameworks */,
 				9CE4C0F9170DFE0400DA04D9 /* libSSToolkit.a in Frameworks */,
 				9CE4C0E7170DFDC100DA04D9 /* MessageUI.framework in Frameworks */,
 				9CE4C0E5170DFDBA00DA04D9 /* QuartzCore.framework in Frameworks */,
@@ -279,6 +332,8 @@
 				9CFD966D170E0EB7006E061A /* PRITableViewController.m */,
 				9CFD9667170E0331006E061A /* PRIPrintViewController.h */,
 				9CFD9668170E0331006E061A /* PRIPrintViewController.m */,
+				9CFD96D517106A34006E061A /* PRIPrintersViewController.h */,
+				9CFD96D617106A34006E061A /* PRIPrintersViewController.m */,
 				9CFD966F170E10FC006E061A /* PRISourcesViewController.h */,
 				9CFD9670170E10FC006E061A /* PRISourcesViewController.m */,
 			);
@@ -293,6 +348,10 @@
 				9CE4C0B9170CE6AE00DA04D9 /* PRIAppDelegate.m */,
 				9CE4C0D8170CF72800DA04D9 /* PRIStyleController.h */,
 				9CE4C0D9170CF72800DA04D9 /* PRIStyleController.m */,
+				9CFD96B717104E67006E061A /* PRIPrintClient.h */,
+				9CFD96B817104E67006E061A /* PRIPrintClient.m */,
+				9CFD96BA1710551A006E061A /* PRIPrintersAvailableParseOperation.h */,
+				9CFD96BB1710551A006E061A /* PRIPrintersAvailableParseOperation.m */,
 			);
 			name = Generic;
 			sourceTree = "<group>";
@@ -300,6 +359,8 @@
 		9CE4C0DE170DFC4000DA04D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9CFD96D817106CFE006E061A /* PRIPrinterTableViewCell.h */,
+				9CFD96D917106CFE006E061A /* PRIPrinterTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -307,6 +368,8 @@
 		9CE4C0DF170DFC4700DA04D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9CFD96D117106112006E061A /* PRIPrinter.h */,
+				9CFD96D217106112006E061A /* PRIPrinter.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -317,6 +380,7 @@
 				9CFD9629170DFF65006E061A /* AFNetworking */,
 				9CFD965F170E0225006E061A /* CDKitt */,
 				9CFD9675170E38C9006E061A /* Crashlytics.framework */,
+				9CFD96BD171060D3006E061A /* Mantle.xcodeproj */,
 				9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */,
 				9CFD9646170DFF98006E061A /* xcconfigs */,
 			);
@@ -490,6 +554,17 @@
 			name = Sources;
 			sourceTree = "<group>";
 		};
+		9CFD96BE171060D3006E061A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD96C7171060D4006E061A /* Mantle.framework */,
+				9CFD96C9171060D4006E061A /* Mantle Mac Tests.octest */,
+				9CFD96CB171060D4006E061A /* libMantle.a */,
+				9CFD96CD171060D4006E061A /* Mantle iOS Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
@@ -522,6 +597,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9CFD96CF171060E8006E061A /* PBXTargetDependency */,
 				9CFD968D170E402D006E061A /* PBXTargetDependency */,
 				9CE4C0F8170DFDFF00DA04D9 /* PBXTargetDependency */,
 				9CE4C0F6170DFDFA00DA04D9 /* PBXTargetDependency */,
@@ -552,6 +628,10 @@
 			productRefGroup = 9CE4C0A7170CE6AE00DA04D9 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 9CFD96BE171060D3006E061A /* Products */;
+					ProjectRef = 9CFD96BD171060D3006E061A /* Mantle.xcodeproj */;
+				},
 				{
 					ProductGroup = 9CE4C0EA170DFDF200DA04D9 /* Products */;
 					ProjectRef = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
@@ -585,6 +665,34 @@
 			fileType = wrapper.cfbundle;
 			path = SSToolkitResources.bundle;
 			remoteRef = 9CE4C0F3170DFDF300DA04D9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CFD96C7171060D4006E061A /* Mantle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mantle.framework;
+			remoteRef = 9CFD96C6171060D4006E061A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CFD96C9171060D4006E061A /* Mantle Mac Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle Mac Tests.octest";
+			remoteRef = 9CFD96C8171060D4006E061A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CFD96CB171060D4006E061A /* libMantle.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMantle.a;
+			remoteRef = 9CFD96CA171060D4006E061A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CFD96CD171060D4006E061A /* Mantle iOS Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle iOS Tests.octest";
+			remoteRef = 9CFD96CC171060D4006E061A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -660,6 +768,11 @@
 				9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */,
 				9CFD9671170E10FC006E061A /* PRISourcesViewController.m in Sources */,
 				9CFD9690170E4069006E061A /* UIImage+PRIAppImages.m in Sources */,
+				9CFD96B917104E67006E061A /* PRIPrintClient.m in Sources */,
+				9CFD96BC1710551A006E061A /* PRIPrintersAvailableParseOperation.m in Sources */,
+				9CFD96D317106112006E061A /* PRIPrinter.m in Sources */,
+				9CFD96D717106A34006E061A /* PRIPrintersViewController.m in Sources */,
+				9CFD96DA17106CFE006E061A /* PRIPrinterTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +793,11 @@
 			isa = PBXTargetDependency;
 			target = 9CFD9688170E4018006E061A /* Image Script */;
 			targetProxy = 9CFD968C170E402D006E061A /* PBXContainerItemProxy */;
+		};
+		9CFD96CF171060E8006E061A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mantle iOS";
+			targetProxy = 9CFD96CE171060E8006E061A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -875,6 +993,7 @@
 				9CFD968B170E4018006E061A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

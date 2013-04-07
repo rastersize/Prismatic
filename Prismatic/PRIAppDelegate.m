@@ -8,7 +8,9 @@
 
 #import "PRIAppDelegate.h"
 #import "PRIStyleController.h"
+#import "PRIPrintClient.h"
 #import <Crashlytics/Crashlytics.h>
+#import "AFNetworkActivityIndicatorManager.h"
 
 
 @implementation PRIAppDelegate
@@ -16,6 +18,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[Crashlytics startWithAPIKey:@"bede20b91f373b5268c4ce52bf52d6a0fbeb391b"];
+	[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+	[PRIPrintClient.sharedClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+		NSString *statusString = @"unknown";
+		if (status == AFNetworkReachabilityStatusNotReachable) {
+			statusString = @"not reachable";
+		} else if (status == AFNetworkReachabilityStatusReachableViaWWAN) {
+			statusString = @"reachable via WWAN";
+		} else if (status == AFNetworkReachabilityStatusReachableViaWiFi) {
+			statusString = @"reachable via Wi-Fi";
+		}
+		DLog(@"network reachability changed to %@", statusString);
+	}];
 	
 	[PRIStyleController applyStyles];
 	
