@@ -13,6 +13,7 @@
 		9CB56A251711BA680076F981 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB56A241711BA680076F981 /* libxml2.dylib */; };
 		9CB56A2F1711C30C0076F981 /* libJLRoutes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB56A2C1711C2FB0076F981 /* libJLRoutes.a */; };
 		9CB56A341711CBCA0076F981 /* NSString+PRIURLHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A331711CBCA0076F981 /* NSString+PRIURLHelpers.m */; };
+		9CB56A3B1711FE690076F981 /* PRIFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A3A1711FE690076F981 /* PRIFile.m */; };
 		9CE4C0AA170CE6AE00DA04D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0A9170CE6AE00DA04D9 /* UIKit.framework */; };
 		9CE4C0AC170CE6AE00DA04D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0AB170CE6AE00DA04D9 /* Foundation.framework */; };
 		9CE4C0AE170CE6AE00DA04D9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE4C0AD170CE6AE00DA04D9 /* CoreGraphics.framework */; };
@@ -181,6 +182,8 @@
 		9CB56A261711C2FB0076F981 /* JLRoutes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JLRoutes.xcodeproj; path = Vendor/JLRoutes/JLRoutes.xcodeproj; sourceTree = "<group>"; };
 		9CB56A321711CBCA0076F981 /* NSString+PRIURLHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PRIURLHelpers.h"; sourceTree = "<group>"; };
 		9CB56A331711CBCA0076F981 /* NSString+PRIURLHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PRIURLHelpers.m"; sourceTree = "<group>"; };
+		9CB56A391711FE690076F981 /* PRIFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIFile.h; sourceTree = "<group>"; };
+		9CB56A3A1711FE690076F981 /* PRIFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIFile.m; sourceTree = "<group>"; };
 		9CE4C0A6170CE6AE00DA04D9 /* Prismatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prismatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE4C0A9170CE6AE00DA04D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CE4C0AB170CE6AE00DA04D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -430,6 +433,8 @@
 		9CE4C0DF170DFC4700DA04D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9CB56A391711FE690076F981 /* PRIFile.h */,
+				9CB56A3A1711FE690076F981 /* PRIFile.m */,
 				9CFD96D117106112006E061A /* PRIPrinter.h */,
 				9CFD96D217106112006E061A /* PRIPrinter.m */,
 			);
@@ -862,6 +867,7 @@
 				9CB56A221711B9920076F981 /* TFHppleElement.m in Sources */,
 				9CB56A231711B9920076F981 /* XPathQuery.m in Sources */,
 				9CB56A341711CBCA0076F981 /* NSString+PRIURLHelpers.m in Sources */,
+				9CB56A3B1711FE690076F981 /* PRIFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
