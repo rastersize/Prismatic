@@ -98,4 +98,14 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 	}];
 }
 
+- (void)quotaCostForFile:(PRIFile *)file usingPrinter:(PRIPrinter *)printer success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+{
+	NSParameterAssert(success);
+	
+	[self performRequestWhenLoggedIn:^{
+		DLog(@"Print file not yet implemented.\n\tFile: %@\n\tPrinter: %@", file, printer);
+	}];
+}
+
+
 @end

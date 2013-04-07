@@ -10,6 +10,11 @@
 
 @implementation PRIPrinter
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+	return @{};
+}
+
 + (instancetype)printerWithIdentifier:(NSString *)identifier name:(NSString *)name location:(NSString *)location
 {
 	return [[self alloc] initWithIdentifier:identifier name:name location:location];

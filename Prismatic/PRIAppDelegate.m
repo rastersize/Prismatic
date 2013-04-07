@@ -19,6 +19,11 @@
 #import <Crashlytics/Crashlytics.h>
 
 
+@interface PRIAppDelegate (/*Private*/)
+@property (strong) UIViewController *presentedPrintViewController;
+@end
+
+
 @implementation PRIAppDelegate
 
 + (instancetype)sharedAppDelegate
@@ -107,26 +112,29 @@
 	}];
 }
 
-- (BOOL)showPrintViewForFile:(PRIFile *)file
+- (void)showPrintViewForFile:(PRIFile *)file
 {
+	if (self.presentedPrintViewController) {
+		[self.presentedPrintViewController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+		self.presentedPrintViewController = nil;
+	}
+	
+	UIViewController *presentingController = PRIAppDelegate.sharedAppDelegate.rootNavigationController.topViewController;
 	PRIPrintViewController *printViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"PrintViewController"];
 	printViewController.file = file;
-
-	UIViewController *presentingController = PRIAppDelegate.sharedAppDelegate.rootNavigationController.topViewController;
+	
+	void (^dismissCompletion)() = ^ { self.presentedPrintViewController = nil; };
 	printViewController.cancelBlock = ^ {
-		[presentingController dismissViewControllerAnimated:YES completion:nil];
+		[presentingController dismissViewControllerAnimated:YES completion:dismissCompletion];
 	};
-	printViewController.printFileUsingPrinterBlock = ^ (PRIFile *file, PRIPrinter *printer) {
+	printViewController.printFileUsingPrinterBlock = ^(PRIFile *file, PRIPrinter *printer) {
 		[self printFile:file usingPrinter:printer];
-		[presentingController dismissViewControllerAnimated:YES completion:nil];
+		[presentingController dismissViewControllerAnimated:YES completion:dismissCompletion];
 	};
 	
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:printViewController];
-	[self.window.rootViewController presentViewController:navigationController animated:YES completion:^{
-		
-	}];
-	
-	return YES;
+	self.presentedPrintViewController = navigationController;
+	[presentingController presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (UINavigationController *)rootNavigationController

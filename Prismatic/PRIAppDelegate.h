@@ -18,7 +18,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic, readonly) UINavigationController *rootNavigationController;
 
-+ (BOOL)openURL:(NSURL *)url;
-+ (BOOL)showPrintViewForFile:(PRIFile *)file;
+- (void)showPrintViewForFile:(PRIFile *)file;
 
 @end

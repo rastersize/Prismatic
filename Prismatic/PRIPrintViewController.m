@@ -17,14 +17,18 @@
 @interface PRIPrintViewController ()
 @property (strong) PRIPrinter *printer;
 @property (strong) id userDefaultsChangeNotification;
+
+@property (assign) BOOL isFirstTime;
 @end
 
 
 @implementation PRIPrintViewController
 
+#pragma mark - View Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.isFirstTime = YES;
 	
 	CGFloat greyComponent = (200.f/256.f);
 	UIColor *printerSelectionSeparatorLineColor = [UIColor colorWithRed:greyComponent green:greyComponent blue:greyComponent alpha:1.f];
@@ -53,9 +57,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	if (self.printer.identifier.length == 0 && [[NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"] length] == 0) {
+	if (self.isFirstTime && self.printer.identifier.length == 0 && NSUserDefaults.defaultPrinterIdentifier.length == 0) {
 		[self performSegueWithIdentifier:@"showSelectPrinterSegue" sender:self];
 	}
+	
+	self.isFirstTime = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -81,19 +87,8 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-	if ([segue.identifier isEqualToString:@"showSelectPrinterSegue"]) {
-		PRIPrintersViewController *printersViewController = segue.destinationViewController;
-		printersViewController.selectedPrinter = self.printer;
-		printersViewController.selectedPrinterChangedBlock = ^(PRIPrinter *printer) {
-			self.printer = printer;
-		};
-	}
-}
 
-
-#pragma mark -
+#pragma mark - Properties and Outlets
 @synthesize file = _file;
 - (PRIFile *)file
 {
@@ -120,17 +115,39 @@
 
 - (void)updateSelectedPrinter
 {
-	NSString *printerIdentifier = (self.printer.identifier.length > 0 ? self.printer.identifier : [NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"]);
+	NSString *printerIdentifier = (self.printer.identifier.length > 0 ? self.printer.identifier : NSUserDefaults.defaultPrinterIdentifier);
 	self.selectedPrinterNameLabel.text = (printerIdentifier.length > 0 ? printerIdentifier : NSLocalizedString(@"No printer selected", @"No printer selected detail text."));
-	self.printer = [PRIPrinter printerWithIdentifier:printerIdentifier name:nil location:nil];
 }
 
 
-#pragma mark - Actions
+#pragma mark - Actions and Segues
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"showSelectPrinterSegue"]) {
+		PRIPrintersViewController *printersViewController = segue.destinationViewController;
+		printersViewController.selectedPrinter = self.printer;
+		printersViewController.selectedPrinterChangedBlock = ^(PRIPrinter *printer) {
+			self.printer = printer;
+			if (NSUserDefaults.lastUsedPrinterAsDefault || NSUserDefaults.defaultPrinterIdentifier) {
+				NSUserDefaults.defaultPrinterIdentifier = printer.identifier;
+			}
+		};
+	}
+}
+
 - (IBAction)print:(id)sender
 {
 	if (self.printFileUsingPrinterBlock) {
-		self.printFileUsingPrinterBlock(self.file, self.printer);
+		PRIPrinter *printer = self.printer;
+		if ((printer.identifier.length == 0 || printer == nil) && NSUserDefaults.defaultPrinterIdentifier.length > 0) {
+			printer = [PRIPrinter printerWithIdentifier:NSUserDefaults.defaultPrinterIdentifier name:nil location:nil];
+		}
+		
+		if (self.printer) {
+			self.printFileUsingPrinterBlock(self.file, self.printer);
+		} else {
+			self.cancelBlock();
+		}
 	}
 }
 

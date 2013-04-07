@@ -8,7 +8,7 @@
 
 #import <Mantle/Mantle.h>
 
-@interface PRIPrinter : MTLModel
+@interface PRIPrinter : MTLModel <MTLJSONSerializing>
 
 @property (copy, readonly) NSString *identifier;
 @property (copy, readonly) NSString *name;

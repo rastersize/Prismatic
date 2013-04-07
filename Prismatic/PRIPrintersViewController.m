@@ -88,7 +88,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *PrinterCellIdentifier = @"printerCell";
-	NSString *selectedPrinterIdentifier = (self.selectedPrinter.identifier.length > 0 ? self.selectedPrinter.identifier : [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultPrinterIdentifier"]);
+	NSString *selectedPrinterIdentifier = (self.selectedPrinter.identifier.length > 0 ? self.selectedPrinter.identifier : NSUserDefaults.defaultPrinterIdentifier);
 	
 	PRIPrinterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PrinterCellIdentifier forIndexPath:indexPath];
 	cell.printer = self.printers[indexPath.section][indexPath.row];
@@ -100,6 +100,8 @@
 	return cell;
 }
 
+
+#pragma mark - Index
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *previouslySelectedCell = [tableView cellForRowAtIndexPath:self.selectedPrinterCellIndexPath];
@@ -134,7 +136,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-	// + 1 as we add UITableViewIndexSearch to the section index.
 	return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index];
 }
 
