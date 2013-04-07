@@ -139,12 +139,13 @@
 {
 	if (self.printFileUsingPrinterBlock) {
 		PRIPrinter *printer = self.printer;
+		DLog(@"NSUserDefaults.defaultPrinterIdentifier: %@", NSUserDefaults.defaultPrinterIdentifier);
 		if ((printer.identifier.length == 0 || printer == nil) && NSUserDefaults.defaultPrinterIdentifier.length > 0) {
 			printer = [PRIPrinter printerWithIdentifier:NSUserDefaults.defaultPrinterIdentifier name:nil location:nil];
 		}
 		
-		if (self.printer) {
-			self.printFileUsingPrinterBlock(self.file, self.printer);
+		if (printer) {
+			self.printFileUsingPrinterBlock(self.file, printer);
 		} else {
 			self.cancelBlock();
 		}
