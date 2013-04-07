@@ -8,6 +8,7 @@
 
 #import "PRIPrintersViewController.h"
 #import "PRIPrinterTableViewCell.h"
+#import "PRIAppDelegate.h"
 #import "PRIPrintClient.h"
 #import "PRIPrinter.h"
 
@@ -32,14 +33,8 @@
 	[super viewDidLoad];
 	
 	_printers = [NSMutableArray arrayWithCapacity:1000];
-	
-	[[PRIPrintClient sharedClient] setAuthorizationHeaderWithUsername:@"" password:@""];
-	[[PRIPrintClient sharedClient] printersAvailableSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
-			[self updateWithPrintersArray:responseObject];
-		}];
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		DLog(@"FAILURE: %@", error);
+	[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		[self updateWithPrintersArray:PRIAppDelegate.sharedAppDelegate.printers];
 	}];
 }
 

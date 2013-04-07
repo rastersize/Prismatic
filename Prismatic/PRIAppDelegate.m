@@ -9,18 +9,24 @@
 #import "PRIAppDelegate.h"
 #import "PRIStyleController.h"
 #import "PRIPrintClient.h"
+#import "PRIPrinter.h"
 #import "PRIFile.h"
 
 #import "NSString+PRIURLHelpers.h"
 
 #import "PRIPrintViewController.h"
 
+#import "NSFileManager+CDKitt.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import <Crashlytics/Crashlytics.h>
+#import <Mantle/Mantle.h>
 
 
 @interface PRIAppDelegate (/*Private*/)
 @property (strong) UIViewController *presentedPrintViewController;
+
+@property (strong) dispatch_queue_t printersQueue;
+@property (copy, readwrite) NSArray *printers;
 @end
 
 
@@ -29,6 +35,16 @@
 + (instancetype)sharedAppDelegate
 {
 	return UIApplication.sharedApplication.delegate;
+}
+
+- (id)init
+{
+	self = [super init];
+	if (self) {
+		_printersQueue = dispatch_queue_create("com.cedercrantz.Prismatic.Printers", DISPATCH_QUEUE_SERIAL);
+		_printers = NSMutableArray.array;
+	}
+	return self;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -54,6 +70,10 @@
 		UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
 		splitViewController.delegate = (id)navigationController.topViewController;
 	}
+	
+	dispatch_async(self.printersQueue, ^{
+		[self loadPrinters];
+	});
 	
 	return YES;
 }
@@ -145,6 +165,99 @@
 		navigationController = [splitViewController.viewControllers lastObject];
 	}
 	return navigationController;
+}
+
+
+#pragma mark - Printers
+@synthesize printers = _printers;
+- (NSArray *)printers
+{
+	__block NSArray *printers = nil;
+	dispatch_sync(self.printersQueue, ^{
+		printers = _printers;
+	});
+	return printers;
+}
+
+- (void)setPrinters:(NSArray *)printers
+{
+	dispatch_async(self.printersQueue, ^{
+		if (_printers != printers) {
+			_printers = printers.copy;
+		}
+	});
+}
+
+- (NSURL *)printersCacheFileURL
+{
+	NSURL *url = [NSFileManager cd_cacheDirectoryURLForBundleWithIdentifier:NSBundle.mainBundle.bundleIdentifier];
+	DLog(@"URL: %@", url);
+	return [url URLByAppendingPathComponent:@"printers.json"];
+}
+
+- (void)savePrinters
+{
+	NSArray *printers = self.printers;
+	NSMutableArray *printerDicts = [NSMutableArray arrayWithCapacity:printers.count];
+	for (PRIPrinter *printer in printers) {
+		NSDictionary *printerDict = [MTLJSONAdapter JSONDictionaryFromModel:printer];
+		if (printerDict != nil) {
+			[printerDicts addObject:printerDict];
+		}
+	}
+	
+	NSData *printersJsonData = [NSJSONSerialization dataWithJSONObject:printerDicts options:0 error:NULL];
+	NSURL *printersCacheFileUrl = self.printersCacheFileURL;
+	[printersJsonData writeToURL:printersCacheFileUrl atomically:YES];
+}
+
+- (void)loadPrinters
+{
+	double delayInSeconds = 0.f;
+	NSURL *printersCacheFileUrl = self.printersCacheFileURL;
+	NSData *printersJsonData = [NSData dataWithContentsOfURL:printersCacheFileUrl];
+	NSArray *printers = [self printerObjectsFromJSONData:printersJsonData];
+	if (printers != nil) {
+		self.printers = printers;
+		delayInSeconds = 10.f;
+	}
+	
+	DLog(@"delay: %f", delayInSeconds);
+	
+	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+	dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+////////////////////////////////////////////////////////////////////////////////
+		[[PRIPrintClient sharedClient] setAuthorizationHeaderWithUsername:@"" password:@""];
+////////////////////////////////////////////////////////////////////////////////
+		[[PRIPrintClient sharedClient] printersAvailableSuccess:^(AFHTTPRequestOperation *operation, NSArray *updatedPrinters) {
+			self.printers = updatedPrinters;
+			[self savePrinters];
+		} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+			DLog(@"Could not update printers list: %@", error);
+		}];
+	});
+}
+
+- (NSArray *)printerObjectsFromJSONData:(NSData *)printersJsonData
+{
+	NSArray *printers = nil;
+	if (printersJsonData.length > 0) {
+		printers = [NSJSONSerialization JSONObjectWithData:printersJsonData options:0 error:NULL];
+		
+		if (printers != nil && [printers isKindOfClass:NSArray.class]) {
+			NSMutableArray *mutablePrinters = [NSMutableArray arrayWithCapacity:printers.count];
+			for (NSDictionary *printerDict in printers) {
+				if ([printerDict isKindOfClass:NSDictionary.class]) {
+					PRIPrinter *printer = [MTLJSONAdapter modelOfClass:PRIPrinter.class fromJSONDictionary:printerDict error:NULL];
+					if (printer != nil) {
+						[mutablePrinters addObject:printer];
+					}
+				}
+			}
+			printers = mutablePrinters;
+		}
+	}
+	return printers;
 }
 
 @end

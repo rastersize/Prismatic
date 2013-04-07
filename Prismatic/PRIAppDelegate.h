@@ -20,4 +20,6 @@
 
 - (void)showPrintViewForFile:(PRIFile *)file;
 
+@property (copy, readonly) NSArray *printers;
+
 @end
