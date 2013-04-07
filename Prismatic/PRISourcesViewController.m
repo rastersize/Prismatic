@@ -10,22 +10,24 @@
 #import "UIFont+Prismatic.h"
 
 
+#import "NSString+PRIURLHelpers.h"
+#import "PRIFile.h"
+#import "PRIAppDelegate.h"
+
+
 @implementation PRISourcesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+	if ([identifier isEqualToString:@"debugShowPrintViewSegue"]) {
+		[NSOperationQueue.mainQueue addOperationWithBlock:^{
+			PRIFile *file = [PRIFile fileWithURL:@"file://lol/This is one long file name.pdf".pri_fileURL name:@"This is one long file name.pdf" pages:32];
+			[PRIAppDelegate.sharedAppDelegate showPrintViewForFile:file];
+		}];
+		return NO;
+	}
+	
+	return YES;
 }
 
 @end

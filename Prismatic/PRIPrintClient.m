@@ -103,7 +103,7 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 	NSParameterAssert(success);
 	
 	[self performRequestWhenLoggedIn:^{
-		DLog(@"Print file not yet implemented.\n\tFile: %@\n\tPrinter: %@", file, printer);
+		DLog(@"Quota cost for file not yet implemented.\n\tFile: %@\n\tPrinter: %@", file, printer);
 	}];
 }
 
