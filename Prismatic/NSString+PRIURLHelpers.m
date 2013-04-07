@@ -15,4 +15,9 @@
 	return [NSURL URLWithString:self];
 }
 
+- (NSURL *)pri_fileURL
+{
+	return [NSURL fileURLWithPath:self];
+}
+
 @end

@@ -11,5 +11,6 @@
 @interface NSString (PRIURLHelpers)
 
 - (NSURL *)pri_URL;
+- (NSURL *)pri_fileURL;
 
 @end
