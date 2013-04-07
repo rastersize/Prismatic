@@ -20,7 +20,7 @@ NSString *const kPRIParserOptionValueSkipped = @"noselected";
 
 @interface PRIPrintersAvailableParseOperation (/*Private*/)
 @property (strong) NSData *HTMLData;
-@property (strong, readonly) void (^completionBlock)(NSArray *);
+@property (strong, readonly) void (^printersCompletionBlock)(NSArray *);
 
 @property (strong, readonly) NSRegularExpression *printerTextRegularExpression;
 @end
@@ -38,7 +38,7 @@ NSString *const kPRIParserOptionValueSkipped = @"noselected";
 	self = [super init];
 	if (self) {
 		_HTMLData = htmlData;
-		_completionBlock = [completion copy];
+		_printersCompletionBlock = [completion copy];
 	}
 	return self;
 }
@@ -64,7 +64,7 @@ NSString *const kPRIParserOptionValueSkipped = @"noselected";
 		}
 		
 		if (!self.isCancelled) {
-			self.completionBlock(printers.copy);
+			self.printersCompletionBlock(printers.copy);
 		}
 		
 		self.HTMLData = nil;

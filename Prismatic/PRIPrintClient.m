@@ -73,7 +73,7 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 	NSParameterAssert(success);
 	
 	[self performRequestWhenLoggedIn:^{
-		[self getPath:kPRIPrintClientUploadPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		void (^successBLock)(AFHTTPRequestOperation *, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {
 			if (responseObject && [responseObject isKindOfClass:NSData.class]) {
 				PRIPrintersAvailableParseOperation *parseOperation = [PRIPrintersAvailableParseOperation parserWithHTMLData:responseObject completion:^(NSArray *printers) {
 					success(operation, printers);
@@ -83,7 +83,9 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 				NSError *error = [NSError errorWithDomain:kPRIPrintClientErrorDomain code:kPRIPrintClientErrorInvalidResponse userInfo:@{ kPRIPrintClientErrorInvalidResponseOriginalResponseKey: (responseObject ?: NSNull.null) }];
 				failure(operation, error);
 			}
-		} failure:failure];
+		};
+		
+		[self getPath:kPRIPrintClientUploadPath parameters:nil success:successBLock failure:failure];
 	}];
 }
 
