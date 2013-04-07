@@ -14,20 +14,12 @@
 @interface PRIPrintViewController ()
 
 @property (strong) PRIPrinter *printer;
+@property (strong) id userDefaultsChangeNotification;
 
 @end
 
 
 @implementation PRIPrintViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -48,11 +40,51 @@
 	
 	UIEdgeInsets currentInset = self.tableView.contentInset;
 	self.tableView.contentInset = UIEdgeInsetsMake(-CGRectGetHeight(self.tableView.tableHeaderView.bounds), currentInset.left, currentInset.bottom, currentInset.right);
+	
+	self.userDefaultsChangeNotification = [NSNotificationCenter.defaultCenter addObserverForName:NSUserDefaultsDidChangeNotification object:NSUserDefaults.standardUserDefaults queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification *note) {
+		[self updateSelectedPrinter];
+	}];
+	
+	[self updateSelectedPrinter];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	if ([[NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"] length] == 0) {
+		[self performSegueWithIdentifier:@"showSelectPrinterSegue" sender:self];
+	}
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+	[self stopObservingNotifications];
+}
+
+- (void)dealloc
+{
+	[self stopObservingNotifications];	
+}
+
+- (void)stopObservingNotifications
+{
+	if (self.userDefaultsChangeNotification) {
+		[NSNotificationCenter.defaultCenter removeObserver:self.userDefaultsChangeNotification name:NSUserDefaultsDidChangeNotification object:NSUserDefaults.standardUserDefaults];
+	}
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark - 
+- (void)updateSelectedPrinter
+{
+	NSString *printerIdentifier = [NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"];
+	self.selectedPrinterNameLabel.text = (printerIdentifier.length > 0 ? printerIdentifier : NSLocalizedString(@"No printer selected", @"No printer selected detail text."));
 }
 
 
