@@ -7,15 +7,15 @@
 //
 
 #import "PRIPrintViewController.h"
+#import "PRIPrinter.h"
+#import "PRIFile.h"
+
 #import <SSToolkit/SSLineView.h>
 
-@class PRIPrinter;
 
 @interface PRIPrintViewController ()
-
 @property (strong) PRIPrinter *printer;
 @property (strong) id userDefaultsChangeNotification;
-
 @end
 
 
@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
 	
-	CGFloat greyComponent = (154.f/256.f);
+	CGFloat greyComponent = (200.f/256.f);
 	UIColor *printerSelectionSeparatorLineColor = [UIColor colorWithRed:greyComponent green:greyComponent blue:greyComponent alpha:1.f];
 	self.printerSelectionTopSeparatorView.lineColor = printerSelectionSeparatorLineColor;
 	self.printerSelectionBottomSeparatorView.lineColor = printerSelectionSeparatorLineColor;
@@ -45,6 +45,7 @@
 		[self updateSelectedPrinter];
 	}];
 	
+	[self updateViewsBasedOnFile];
 	[self updateSelectedPrinter];
 }
 
@@ -80,23 +81,52 @@
 }
 
 
-#pragma mark - 
+#pragma mark -
+@synthesize file = _file;
+- (PRIFile *)file
+{
+	return _file;
+}
+
+- (void)setFile:(PRIFile *)file
+{
+	if (_file != file) {
+		_file = file;
+		[self updateViewsBasedOnFile];
+	}
+}
+
+- (void)updateViewsBasedOnFile
+{
+	self.nameLabel.text = (self.file.name.length > 0 ? self.file.name : NSLocalizedString(@"Unkown file name", @"Print title when no file name is available."));
+	self.pagesLabel.text = [NSString localizedStringWithFormat:@"%lu pages", (unsigned long)self.file.pages];
+	
+	BOOL isColorPrinter = ([self.printer.identifier rangeOfString:@"color"].location != NSNotFound);
+	NSUInteger quotaEstimate = self.file.pages * (isColorPrinter ? 2 : 1);
+	self.quotaLabel.text = [NSString localizedStringWithFormat:@"~%lu quota", (unsigned long)quotaEstimate];
+}
+
 - (void)updateSelectedPrinter
 {
 	NSString *printerIdentifier = [NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"];
 	self.selectedPrinterNameLabel.text = (printerIdentifier.length > 0 ? printerIdentifier : NSLocalizedString(@"No printer selected", @"No printer selected detail text."));
+	self.printer = [PRIPrinter printerWithIdentifier:printerIdentifier name:nil location:nil];
 }
 
 
 #pragma mark - Actions
 - (IBAction)print:(id)sender
 {
-	[self.delegate printViewController:self wantsToPrintFile:self.file];
+	if (self.printFileUsingPrinterBlock) {
+		self.printFileUsingPrinterBlock(self.file, self.printer);
+	}
 }
 
 - (IBAction)cancel:(id)sender
 {
-	[self.delegate printViewControllerWasCancelled:self];
+	if (self.cancelBlock) {
+		self.cancelBlock();
+	}
 }
 
 @end

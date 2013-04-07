@@ -480,7 +480,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="a-1234-laser1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnI-GS-eWg">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;PRINTER ID>" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnI-GS-eWg">
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -562,6 +562,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameLabel" destination="n0k-V5-vX8" id="XWh-aV-q0B"/>
                         <outlet property="pagesLabel" destination="n1J-vg-vL5" id="aHh-Ob-ShI"/>
                         <outlet property="previewImageView" destination="vWP-55-WxD" id="57j-dZ-gyB"/>
                         <outlet property="printerSelectionBottomSeparatorView" destination="Syi-2y-5PW" id="5aM-IG-CjX"/>
@@ -856,7 +857,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Xpw-Na-nB4">
             <objects>
-                <navigationController id="Aea-kt-CqT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PrintViewNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Aea-kt-CqT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mwl-pJ-vM5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -927,6 +928,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kVV-UO-LG4"/>
+        <segue reference="jow-pc-bB0"/>
     </inferredMetricsTieBreakers>
 </document>

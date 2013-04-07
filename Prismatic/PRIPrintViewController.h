@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "PRITableViewController.h"
-#import "PRIPrintViewControllerDelegate.h"
 
 @class SSLineView;
 @class PRIFile;
@@ -18,9 +17,8 @@
 @interface PRIPrintViewController : PRITableViewController
 
 #pragma mark - Delegate
-@property (weak) id<PRIPrintViewControllerDelegate> delegate;
-@property (strong) void (^printViewControllerWasCancelledBlock)(__weak PRIPrintViewController *);
-@property (strong) void (^printViewControllerWantsToPrintFileBlock)(__weak PRIPrintViewController *, PRIFile *, PRIPrinter *);
+@property (strong) void (^cancelBlock)();
+@property (strong) void (^printFileUsingPrinterBlock)(PRIFile *, PRIPrinter *);
 
 
 #pragma mark - File
