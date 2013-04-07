@@ -14,4 +14,5 @@
 	#import <SystemConfiguration/SystemConfiguration.h>
 	#import <MobileCoreServices/MobileCoreServices.h>
 	#import "CDKittMacros.h"
+	#import "NSUserDefaults+Prismatic.h"
 #endif
