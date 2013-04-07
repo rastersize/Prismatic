@@ -8,6 +8,10 @@
 
 #import "PRITableViewController.h"
 
-@interface PRIPrintersViewController : PRITableViewController
+@class PRIPrinter;
 
+
+@interface PRIPrintersViewController : PRITableViewController
+@property (strong) void (^selectedPrinterChangedBlock)(PRIPrinter *printer);
+@property (strong) PRIPrinter *selectedPrinter;
 @end

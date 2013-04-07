@@ -7,6 +7,7 @@
 //
 
 #import "PRIPrintViewController.h"
+#import "PRIPrintersViewController.h"
 #import "PRIPrinter.h"
 #import "PRIFile.h"
 
@@ -52,7 +53,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	if ([[NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"] length] == 0) {
+	if (self.printer.identifier.length == 0 && [[NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"] length] == 0) {
 		[self performSegueWithIdentifier:@"showSelectPrinterSegue" sender:self];
 	}
 }
@@ -78,6 +79,17 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"showSelectPrinterSegue"]) {
+		PRIPrintersViewController *printersViewController = segue.destinationViewController;
+		printersViewController.selectedPrinter = self.printer;
+		printersViewController.selectedPrinterChangedBlock = ^(PRIPrinter *printer) {
+			self.printer = printer;
+		};
+	}
 }
 
 
@@ -108,7 +120,7 @@
 
 - (void)updateSelectedPrinter
 {
-	NSString *printerIdentifier = [NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"];
+	NSString *printerIdentifier = (self.printer.identifier.length > 0 ? self.printer.identifier : [NSUserDefaults.standardUserDefaults objectForKey:@"defaultPrinterIdentifier"]);
 	self.selectedPrinterNameLabel.text = (printerIdentifier.length > 0 ? printerIdentifier : NSLocalizedString(@"No printer selected", @"No printer selected detail text."));
 	self.printer = [PRIPrinter printerWithIdentifier:printerIdentifier name:nil location:nil];
 }

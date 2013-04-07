@@ -88,7 +88,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *PrinterCellIdentifier = @"printerCell";
-	NSString *selectedPrinterIdentifier = [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultPrinterIdentifier"];
+	NSString *selectedPrinterIdentifier = (self.selectedPrinter.identifier.length > 0 ? self.selectedPrinter.identifier : [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultPrinterIdentifier"]);
 	
 	PRIPrinterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PrinterCellIdentifier forIndexPath:indexPath];
 	cell.printer = self.printers[indexPath.section][indexPath.row];
@@ -105,11 +105,17 @@
 	UITableViewCell *previouslySelectedCell = [tableView cellForRowAtIndexPath:self.selectedPrinterCellIndexPath];
 	previouslySelectedCell.accessoryType = UITableViewCellAccessoryNone;
 	
-	self.selectedPrinterCellIndexPath = indexPath;
 	PRIPrinterTableViewCell *selectedCell = (PRIPrinterTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 	selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+	self.selectedPrinterCellIndexPath = indexPath;
 	
-	[[NSUserDefaults standardUserDefaults] setObject:selectedCell.printer.identifier forKey:@"defaultPrinterIdentifier"];
+	PRIPrinter *printer = selectedCell.printer;
+	self.selectedPrinter = printer;
+	if (self.selectedPrinterChangedBlock) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.selectedPrinterChangedBlock(printer);
+		});
+	}
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
