@@ -9,6 +9,7 @@
 #import "PRIPrintersViewController.h"
 #import "PRIPrinterTableViewCell.h"
 #import "PRIPrintClient.h"
+#import "PRIPrinter.h"
 
 
 
@@ -21,6 +22,7 @@
 //     …
 // ]
 @property (strong) NSMutableArray *printers;
+@property (strong) NSIndexPath *selectedPrinterCellIndexPath;
 @end
 
 @implementation PRIPrintersViewController
@@ -68,6 +70,7 @@
 	}
 	
 	self.printers = sections;
+	self.selectedPrinterCellIndexPath = nil;
 	[self.tableView reloadData];
 }
 
@@ -85,17 +88,30 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *PrinterCellIdentifier = @"printerCell";
+	NSString *selectedPrinterIdentifier = [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultPrinterIdentifier"];
+	
 	PRIPrinterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PrinterCellIdentifier forIndexPath:indexPath];
 	cell.printer = self.printers[indexPath.section][indexPath.row];
-//	cell.accessoryType = UITableViewCellAccessoryNone;
+	cell.accessoryType = [cell.printer.identifier isEqualToString:selectedPrinterIdentifier] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+		self.selectedPrinterCellIndexPath = indexPath;
+	}
+	
 	return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// Remove check from previously selected row.
-	//[self.selectedPrinterCell ]
-	// Toggle the check mark for the selected row.
+	UITableViewCell *previouslySelectedCell = [tableView cellForRowAtIndexPath:self.selectedPrinterCellIndexPath];
+	previouslySelectedCell.accessoryType = UITableViewCellAccessoryNone;
+	
+	self.selectedPrinterCellIndexPath = indexPath;
+	PRIPrinterTableViewCell *selectedCell = (PRIPrinterTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+	selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+	
+	[[NSUserDefaults standardUserDefaults] setObject:selectedCell.printer.identifier forKey:@"defaultPrinterIdentifier"];
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
