@@ -10,3 +10,9 @@
 [submodule "Vendor/Mantle"]
 	path = Vendor/Mantle
 	url = https://github.com/github/Mantle.git
+[submodule "Vendor/Hpple"]
+	path = Vendor/Hpple
+	url = https://github.com/topfunky/hpple.git
+[submodule "Vendor/JLRoutes"]
+	path = Vendor/JLRoutes
+	url = https://github.com/joeldev/JLRoutes.git

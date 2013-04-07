@@ -8,6 +8,8 @@
 
 #import "PRIPrintClient.h"
 #import "PRIPrintersAvailableParseOperation.h"
+#import "PRIAppDelegate.h"
+#import "NSString+PRIURLHelpers.h"
 
 
 NSString *const kPRIPrintClientErrorDomain = @"com.cedercrantz.Prismatic.print-client.error";
@@ -20,6 +22,8 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 
 
 @interface PRIPrintClient (/*Private*/)
+@property (assign) BOOL isAuthorizationSet;
+
 @property (strong, readonly) NSOperationQueue *parserQueue;
 @end
 
@@ -47,21 +51,40 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 	return self;
 }
 
+- (void)setAuthorizationHeaderWithUsername:(NSString *)username password:(NSString *)password
+{
+	[super setAuthorizationHeaderWithUsername:username password:password];
+	self.isAuthorizationSet = (username.length > 0 && password.length > 0);
+}
+
+- (void)performRequestWhenLoggedIn:(void (^)())requestBlock
+{
+	NSParameterAssert(requestBlock);
+	
+//	if (!self.isAuthorizationSet) {
+//		[PRIAppDelegate openURL:@"prismatic://login".pri_URL];
+//	} else {
+		requestBlock();
+//	}
+}
+
 - (void)printersAvailableSuccess:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
 {
 	NSParameterAssert(success);
 	
-	[self getPath:kPRIPrintClientUploadPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		if (responseObject && [responseObject isKindOfClass:NSData.class]) {
-			PRIPrintersAvailableParseOperation *parseOperation = [PRIPrintersAvailableParseOperation parserWithHTMLData:responseObject completion:^(NSArray *printers) {
-				success(operation, printers);
-			}];
-			[self.parserQueue addOperation:parseOperation];
-		} else if (failure != nil) {
-			NSError *error = [NSError errorWithDomain:kPRIPrintClientErrorDomain code:kPRIPrintClientErrorInvalidResponse userInfo:@{ kPRIPrintClientErrorInvalidResponseOriginalResponseKey: (responseObject ?: NSNull.null) }];
-			failure(operation, error);
-		}
-	} failure:failure];
+	[self performRequestWhenLoggedIn:^{
+		[self getPath:kPRIPrintClientUploadPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+			if (responseObject && [responseObject isKindOfClass:NSData.class]) {
+				PRIPrintersAvailableParseOperation *parseOperation = [PRIPrintersAvailableParseOperation parserWithHTMLData:responseObject completion:^(NSArray *printers) {
+					success(operation, printers);
+				}];
+				[self.parserQueue addOperation:parseOperation];
+			} else if (failure != nil) {
+				NSError *error = [NSError errorWithDomain:kPRIPrintClientErrorDomain code:kPRIPrintClientErrorInvalidResponse userInfo:@{ kPRIPrintClientErrorInvalidResponseOriginalResponseKey: (responseObject ?: NSNull.null) }];
+				failure(operation, error);
+			}
+		} failure:failure];
+	}];
 }
 
 @end

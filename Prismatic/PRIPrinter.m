@@ -17,6 +17,9 @@
 
 - (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name location:(NSString *)location
 {
+	NSParameterAssert(identifier);
+	NSParameterAssert(identifier.length > 0);
+	
 	self = [super init];
 	if (self) {
 		_identifier = identifier.copy;

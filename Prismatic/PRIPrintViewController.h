@@ -12,12 +12,15 @@
 
 @class SSLineView;
 @class PRIFile;
+@class PRIPrinter;
 
 
 @interface PRIPrintViewController : PRITableViewController
 
 #pragma mark - Delegate
 @property (weak) id<PRIPrintViewControllerDelegate> delegate;
+@property (strong) void (^printViewControllerWasCancelledBlock)(__weak PRIPrintViewController *);
+@property (strong) void (^printViewControllerWantsToPrintFileBlock)(__weak PRIPrintViewController *, PRIFile *, PRIPrinter *);
 
 
 #pragma mark - File

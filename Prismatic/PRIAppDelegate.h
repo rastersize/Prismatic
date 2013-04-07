@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class PRIFile;
+@class PRIPrinter;
+
 @interface PRIAppDelegate : UIResponder <UIApplicationDelegate>
 
++ (instancetype)sharedAppDelegate;
+
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic, readonly) UINavigationController *rootNavigationController;
+
++ (BOOL)openURL:(NSURL *)url;
++ (BOOL)showPrintViewForFile:(PRIFile *)file;
 
 @end

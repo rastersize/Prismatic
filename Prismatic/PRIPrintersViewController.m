@@ -19,7 +19,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	[[PRIPrintClient sharedClient] setAuthorizationHeaderWithUsername:@"cedercra" password:@"4--iJD_H"];
+	[[PRIPrintClient sharedClient] setAuthorizationHeaderWithUsername:@"" password:@""];
 	[[PRIPrintClient sharedClient] printersAvailableSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 		DLog(@"operation: %@", operation);
 		DLog(@"response: %@", responseObject);
@@ -54,6 +54,15 @@
 	PRIPrinterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PrinterCellIdentifier forIndexPath:indexPath];
 	cell.printer = self.printers[indexPath.row];
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+	
+	// Remove check from previously selected row.
+	//[self.selectedPrinterCell ]
+	// Toggle the check mark for the selected row.
 }
 
 @end

@@ -9,11 +9,22 @@
 #import "PRIAppDelegate.h"
 #import "PRIStyleController.h"
 #import "PRIPrintClient.h"
-#import <Crashlytics/Crashlytics.h>
+
+#import "NSString+PRIURLHelpers.h"
+
+#import "PRIPrintViewController.h"
+
 #import "AFNetworkActivityIndicatorManager.h"
+#import <JLRoutes/JLRoutes.h>
+#import <Crashlytics/Crashlytics.h>
 
 
 @implementation PRIAppDelegate
+
++ (instancetype)sharedAppDelegate
+{
+	return UIApplication.sharedApplication.delegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -74,8 +85,69 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
 	DLog(@"url = %@; sourceApp: %@; annotation: %@", url, sourceApplication, annotation);
+	return [JLRoutes routeURL:url];
+}
+
++ (BOOL)openURL:(NSURL *)url
+{
+	return [[UIApplication sharedApplication] openURL:url];
+}
+
++ (BOOL)showPrintViewForFile:(PRIFile *)file
+{
+	NSURL *url = nil;//[NSURL URLWithString:[NSString stringWithFormat:@"x-prismatic://print/id/", ]];
+	return [self openURL:url];
+}
+
++ (void)setUpAppRoutes
+{
+	[JLRoutes addRoute:@"/print/id/:id" priority:1 handler:^BOOL(NSDictionary *parameters) {
+		id file = nil;//PRIFile *file = ???.files object with identifier = :id
+		PRIPrintViewController *printViewController = [PRIAppDelegate.sharedAppDelegate.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"PrintViewController"];
+		printViewController.file = file;
+		
+		UIViewController *presentingController = PRIAppDelegate.sharedAppDelegate.rootNavigationController.topViewController;
+		printViewController.printViewControllerWasCancelledBlock = ^(__weak PRIPrintViewController *viewController) {
+			[viewController dismissViewControllerAnimated:YES completion:nil];
+		};
+		printViewController.printViewControllerWantsToPrintFileBlock = ^(__weak PRIPrintViewController *viewController, PRIFile *file, PRIPrinter *printer) {
+			[PRIPrintClient.sharedClient printFile:file usingPrinter:printer uploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+				NSLog(@"Print upload progress:\n\tWritten = %ld bytes\n\tTotal written = %lld bytes\n\tTotal expected to write = %lld", (unsigned long)bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
+			} success:^(__unused AFHTTPRequestOperation *operation, id responseObject) {
+				DLog(@"Print job successfully sent to printer.");
+			} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+				DLog(@"Failed to send print job to the printer: %@", error);
+			}];
+			
+			[viewController dismissViewControllerAnimated:YES completion:nil];
+		};
+		
+		[presentingController presentViewController:printViewController animated:YES completion:nil];
+		
+		return YES;
+	}];
 	
-	return NO;
+	[JLRoutes addRoute:@"/print/:url" priority:0 handler:^BOOL(NSDictionary *parameters) {
+		NSString *urlString = parameters[@"url"];
+		NSURL *url = [NSURL URLWithString:urlString];
+		
+		if (url) {
+			// Create a PRIFile object for the URL. PRIFile *file = ???;
+			NSString *internalUrlString = [NSString stringWithFormat:@"prismatic://print/id/%@", [NSUUID.UUID UUIDString]];/*file.identifier*/
+			[self openURL:internalUrlString.pri_URL];
+		}
+		return NO;
+	}];
+}
+
+- (UINavigationController *)rootNavigationController
+{
+	UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+		navigationController = [splitViewController.viewControllers lastObject];
+	}
+	return navigationController;
 }
 
 @end
