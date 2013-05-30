@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C19D41D1757E40C00CE87EB /* libCDKitt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C19D41A1757E3F400CE87EB /* libCDKitt.a */; };
 		9CB56A211711B9920076F981 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A1C1711B9920076F981 /* TFHpple.m */; };
 		9CB56A221711B9920076F981 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A1E1711B9920076F981 /* TFHppleElement.m */; };
 		9CB56A231711B9920076F981 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A201711B9920076F981 /* XPathQuery.m */; };
@@ -42,7 +43,6 @@
 		9CFD9644170DFF65006E061A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD963A170DFF65006E061A /* AFXMLRequestOperation.m */; };
 		9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD963C170DFF65006E061A /* UIImageView+AFNetworking.m */; };
 		9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */; };
-		9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */; };
 		9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9668170E0331006E061A /* PRIPrintViewController.m */; };
 		9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD966D170E0EB7006E061A /* PRITableViewController.m */; };
 		9CFD9671170E10FC006E061A /* PRISourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9670170E10FC006E061A /* PRISourcesViewController.m */; };
@@ -71,6 +71,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9C19D4151757E3F400CE87EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9CF8BBE2163EC93100F34638;
+			remoteInfo = "CDKitt-Mac";
+		};
+		9C19D4171757E3F400CE87EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9CF8BBFA163EC93200F34638;
+			remoteInfo = CDKittTests;
+		};
+		9C19D4191757E3F400CE87EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C1DE128164F1C0900120817;
+			remoteInfo = "CDKitt-iOS";
+		};
+		9C19D41B1757E40500CE87EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C1DE127164F1C0900120817;
+			remoteInfo = "CDKitt-iOS";
+		};
 		9CE4C0EF170DFDF300DA04D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */;
@@ -151,6 +179,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CDKitt.xcodeproj; path = Vendor/CDKitt/CDKitt.xcodeproj; sourceTree = "<group>"; };
 		9CB56A1B1711B9920076F981 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Vendor/Hpple/TFHpple.h; sourceTree = "<group>"; };
 		9CB56A1C1711B9920076F981 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Vendor/Hpple/TFHpple.m; sourceTree = "<group>"; };
 		9CB56A1D1711B9920076F981 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Vendor/Hpple/TFHppleElement.h; sourceTree = "<group>"; };
@@ -222,9 +251,6 @@
 		9CFD965A170DFF98006E061A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		9CFD965C170E00B8006E061A /* UIFont+Prismatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Prismatic.h"; sourceTree = "<group>"; };
 		9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Prismatic.m"; sourceTree = "<group>"; };
-		9CFD9660170E0225006E061A /* CDKittMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDKittMacros.h; sourceTree = "<group>"; };
-		9CFD9661170E0225006E061A /* NSFileManager+CDKitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CDKitt.h"; sourceTree = "<group>"; };
-		9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CDKitt.m"; sourceTree = "<group>"; };
 		9CFD9667170E0331006E061A /* PRIPrintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIPrintViewController.h; sourceTree = "<group>"; };
 		9CFD9668170E0331006E061A /* PRIPrintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIPrintViewController.m; sourceTree = "<group>"; };
 		9CFD966C170E0EB7006E061A /* PRITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRITableViewController.h; sourceTree = "<group>"; };
@@ -266,6 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C19D41D1757E40C00CE87EB /* libCDKitt.a in Frameworks */,
 				9CB56A251711BA680076F981 /* libxml2.dylib in Frameworks */,
 				9CE4C0E7170DFDC100DA04D9 /* MessageUI.framework in Frameworks */,
 				9CE4C0E5170DFDBA00DA04D9 /* QuartzCore.framework in Frameworks */,
@@ -283,6 +310,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C19D40F1757E3F300CE87EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C19D4161757E3F400CE87EB /* CDKitt.framework */,
+				9C19D4181757E3F400CE87EB /* CDKittTests.octest */,
+				9C19D41A1757E3F400CE87EB /* libCDKitt.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9CB56A1A1711B9790076F981 /* Hpple */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,8 +451,8 @@
 			isa = PBXGroup;
 			children = (
 				9CFD9629170DFF65006E061A /* AFNetworking */,
-				9CFD965F170E0225006E061A /* CDKitt */,
 				9CFD9675170E38C9006E061A /* Crashlytics.framework */,
+				9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */,
 				9CB56A1A1711B9790076F981 /* Hpple */,
 				9CFD96BD171060D3006E061A /* Mantle.xcodeproj */,
 				9CE4C0E9170DFDF200DA04D9 /* SSToolkit.xcodeproj */,
@@ -539,17 +576,6 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		9CFD965F170E0225006E061A /* CDKitt */ = {
-			isa = PBXGroup;
-			children = (
-				9CFD9660170E0225006E061A /* CDKittMacros.h */,
-				9CFD9661170E0225006E061A /* NSFileManager+CDKitt.h */,
-				9CFD9662170E0225006E061A /* NSFileManager+CDKitt.m */,
-			);
-			name = CDKitt;
-			path = Vendor/CDKitt;
-			sourceTree = "<group>";
-		};
 		9CFD966B170E0AD1006E061A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +663,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9C19D41C1757E40500CE87EB /* PBXTargetDependency */,
 				9CFD96CF171060E8006E061A /* PBXTargetDependency */,
 				9CFD968D170E402D006E061A /* PBXTargetDependency */,
 				9CE4C0F8170DFDFF00DA04D9 /* PBXTargetDependency */,
@@ -669,6 +696,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 9C19D40F1757E3F300CE87EB /* Products */;
+					ProjectRef = 9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */;
+				},
+				{
 					ProductGroup = 9CFD96BE171060D3006E061A /* Products */;
 					ProjectRef = 9CFD96BD171060D3006E061A /* Mantle.xcodeproj */;
 				},
@@ -686,6 +717,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9C19D4161757E3F400CE87EB /* CDKitt.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CDKitt.framework;
+			remoteRef = 9C19D4151757E3F400CE87EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9C19D4181757E3F400CE87EB /* CDKittTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CDKittTests.octest;
+			remoteRef = 9C19D4171757E3F400CE87EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9C19D41A1757E3F400CE87EB /* libCDKitt.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCDKitt.a;
+			remoteRef = 9C19D4191757E3F400CE87EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9CE4C0F0170DFDF300DA04D9 /* libSSToolkit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -803,7 +855,6 @@
 				9CFD9644170DFF65006E061A /* AFXMLRequestOperation.m in Sources */,
 				9CFD9645170DFF65006E061A /* UIImageView+AFNetworking.m in Sources */,
 				9CFD965E170E00B8006E061A /* UIFont+Prismatic.m in Sources */,
-				9CFD9665170E0225006E061A /* NSFileManager+CDKitt.m in Sources */,
 				9CFD9669170E0331006E061A /* PRIPrintViewController.m in Sources */,
 				9CFD966E170E0EB7006E061A /* PRITableViewController.m in Sources */,
 				9CFD9671170E10FC006E061A /* PRISourcesViewController.m in Sources */,
@@ -825,6 +876,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9C19D41C1757E40500CE87EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CDKitt-iOS";
+			targetProxy = 9C19D41B1757E40500CE87EB /* PBXContainerItemProxy */;
+		};
 		9CE4C0F6170DFDFA00DA04D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SSToolkit;
@@ -945,6 +1001,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
 					Vendor/SSToolkit,
 					"$(SDKROOT)/usr/include/libxml2",
 				);
@@ -971,6 +1028,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prismatic/Prismatic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
 					Vendor/SSToolkit,
 					"$(SDKROOT)/usr/include/libxml2",
 				);

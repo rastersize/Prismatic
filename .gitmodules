@@ -13,3 +13,6 @@
 [submodule "Vendor/Hpple"]
 	path = Vendor/Hpple
 	url = https://github.com/topfunky/hpple.git
+[submodule "Vendor/CDKitt"]
+	path = Vendor/CDKitt
+	url = https://github.com/rastersize/CDKitt.git
