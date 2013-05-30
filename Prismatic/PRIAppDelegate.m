@@ -16,7 +16,7 @@
 
 #import "PRIPrintViewController.h"
 
-#import "NSFileManager+CDKitt.h"
+#import <CDKitt/NSFileManager+CDKitt.h>
 #import "AFNetworkActivityIndicatorManager.h"
 #import <Crashlytics/Crashlytics.h>
 #import <Mantle/Mantle.h>
