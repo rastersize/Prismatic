@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C19D41D1757E40C00CE87EB /* libCDKitt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C19D41A1757E3F400CE87EB /* libCDKitt.a */; };
+		9C19D4331757EB3600CE87EB /* PRIAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C19D4321757EB3600CE87EB /* PRIAuthorizationViewController.m */; };
 		9CB56A211711B9920076F981 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A1C1711B9920076F981 /* TFHpple.m */; };
 		9CB56A221711B9920076F981 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A1E1711B9920076F981 /* TFHppleElement.m */; };
 		9CB56A231711B9920076F981 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A201711B9920076F981 /* XPathQuery.m */; };
@@ -180,6 +181,8 @@
 
 /* Begin PBXFileReference section */
 		9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CDKitt.xcodeproj; path = Vendor/CDKitt/CDKitt.xcodeproj; sourceTree = "<group>"; };
+		9C19D4311757EB3600CE87EB /* PRIAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIAuthorizationViewController.h; sourceTree = "<group>"; };
+		9C19D4321757EB3600CE87EB /* PRIAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIAuthorizationViewController.m; sourceTree = "<group>"; };
 		9CB56A1B1711B9920076F981 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Vendor/Hpple/TFHpple.h; sourceTree = "<group>"; };
 		9CB56A1C1711B9920076F981 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Vendor/Hpple/TFHpple.m; sourceTree = "<group>"; };
 		9CB56A1D1711B9920076F981 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Vendor/Hpple/TFHppleElement.h; sourceTree = "<group>"; };
@@ -423,6 +426,8 @@
 				9CE4C0C4170CE6AE00DA04D9 /* MainStoryboard_iPad.storyboard */,
 				9CFD966C170E0EB7006E061A /* PRITableViewController.h */,
 				9CFD966D170E0EB7006E061A /* PRITableViewController.m */,
+				9C19D4311757EB3600CE87EB /* PRIAuthorizationViewController.h */,
+				9C19D4321757EB3600CE87EB /* PRIAuthorizationViewController.m */,
 				9CFD9667170E0331006E061A /* PRIPrintViewController.h */,
 				9CFD9668170E0331006E061A /* PRIPrintViewController.m */,
 				9CFD96D517106A34006E061A /* PRIPrintersViewController.h */,
@@ -886,6 +891,7 @@
 				9CB56A341711CBCA0076F981 /* NSString+PRIURLHelpers.m in Sources */,
 				9CB56A3B1711FE690076F981 /* PRIFile.m in Sources */,
 				9CB56A3E171211540076F981 /* NSUserDefaults+Prismatic.m in Sources */,
+				9C19D4331757EB3600CE87EB /* PRIAuthorizationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +955,7 @@
 /* Begin XCBuildConfiguration section */
 		9CE4C0CD170CE6AE00DA04D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CFD964A170DFF98006E061A /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -969,6 +976,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -981,6 +989,7 @@
 		};
 		9CE4C0CE170CE6AE00DA04D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CFD964C170DFF98006E061A /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
