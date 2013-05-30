@@ -29,6 +29,7 @@
 	
 	// Search bars
 	[[UITextField appearanceWhenContainedIn:UISearchBar.class , nil] setFont:[regularFont fontWithSize:UIFont.systemFontSize]];
+	[[UISearchBar appearance] setSearchTextPositionAdjustment:UIOffsetMake(0.f, 1.f)];
 }
 
 @end
