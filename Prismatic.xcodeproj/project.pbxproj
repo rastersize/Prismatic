@@ -320,6 +320,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9C19D4271757E67600CE87EB /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD965C170E00B8006E061A /* UIFont+Prismatic.h */,
+				9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */,
+				9CFD968E170E4069006E061A /* UIImage+PRIAppImages.h */,
+				9CFD968F170E4069006E061A /* UIImage+PRIAppImages.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		9C19D42F1757E67D00CE87EB /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				9CB56A321711CBCA0076F981 /* NSString+PRIURLHelpers.h */,
+				9CB56A331711CBCA0076F981 /* NSString+PRIURLHelpers.m */,
+				9CB56A3C171211540076F981 /* NSUserDefaults+Prismatic.h */,
+				9CB56A3D171211540076F981 /* NSUserDefaults+Prismatic.m */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
 		9CB56A1A1711B9790076F981 /* Hpple */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,14 +586,8 @@
 		9CFD965B170E00A6006E061A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				9CFD965C170E00B8006E061A /* UIFont+Prismatic.h */,
-				9CFD965D170E00B8006E061A /* UIFont+Prismatic.m */,
-				9CFD968E170E4069006E061A /* UIImage+PRIAppImages.h */,
-				9CFD968F170E4069006E061A /* UIImage+PRIAppImages.m */,
-				9CB56A321711CBCA0076F981 /* NSString+PRIURLHelpers.h */,
-				9CB56A331711CBCA0076F981 /* NSString+PRIURLHelpers.m */,
-				9CB56A3C171211540076F981 /* NSUserDefaults+Prismatic.h */,
-				9CB56A3D171211540076F981 /* NSUserDefaults+Prismatic.m */,
+				9C19D42F1757E67D00CE87EB /* Foundation */,
+				9C19D4271757E67600CE87EB /* UIKit */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
