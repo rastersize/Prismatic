@@ -657,7 +657,7 @@
 /* Begin PBXLegacyTarget section */
 		9CFD9688170E4018006E061A /* Image Script */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "\"$(SRCROOT)/Scripts/image.py\" -s \"$(SRCROOT)/Graphics\" -d \"$(SRCROOT)/Prismatic/UIImage+PRIAppImages\" --prefix \"PRI\" --platform \"ios\"";
+			buildArgumentsString = "\"$(SRCROOT)/Vendor/CDKitt/Scripts/image.py\" -s \"$(SRCROOT)/Graphics\" -d \"$(SRCROOT)/Prismatic/UIImage+PRIAppImages\" --prefix \"PRI\" --platform \"ios\"";
 			buildConfigurationList = 9CFD9689170E4018006E061A /* Build configuration list for PBXLegacyTarget "Image Script" */;
 			buildPhases = (
 			);
