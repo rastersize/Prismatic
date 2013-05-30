@@ -15,10 +15,12 @@
 
 + (instancetype)sharedAppDelegate;
 
+@property (strong, nonatomic, readonly) UIStoryboard *storyboard;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic, readonly) UINavigationController *rootNavigationController;
 
 - (void)showPrintViewForFile:(PRIFile *)file;
+- (void)showAuthorizationView;
 
 @property (copy, readonly) NSArray *printers;
 

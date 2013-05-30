@@ -22,8 +22,9 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 
 
 @interface PRIPrintClient (/*Private*/)
-@property (assign) BOOL isAuthorizationSet;
+@property (assign, nonatomic) BOOL hasAuthorizationHeader;
 
+@property (strong, readonly) NSOperationQueue *requestsQueue;
 @property (strong, readonly) NSOperationQueue *parserQueue;
 @end
 
@@ -45,29 +46,50 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 {
 	self = [super initWithBaseURL:url];
 	if (self) {
+		_hasAuthorizationHeader = NO;
+		
 		_parserQueue = [[NSOperationQueue alloc] init];
 		_parserQueue.name = @"com.cedercrantz.Prismatic.print-client.parser-queue";
+		
+		_requestsQueue = [[NSOperationQueue alloc] init];
+		_requestsQueue.name = @"com.cedercrantz.Prismatic.print-client.requests-queue";
+		_requestsQueue.maxConcurrentOperationCount = 1;
+		_requestsQueue.suspended = YES;
 	}
 	return self;
 }
 
+
+#pragma mark - Authorization
 - (void)setAuthorizationHeaderWithUsername:(NSString *)username password:(NSString *)password
 {
 	[super setAuthorizationHeaderWithUsername:username password:password];
-	self.isAuthorizationSet = (username.length > 0 && password.length > 0);
+	self.hasAuthorizationHeader = (username.length > 0 && password.length > 0);
 }
 
+- (void)setHasAuthorizationHeader:(BOOL)hasAuthorizationHeader
+{
+	_hasAuthorizationHeader = hasAuthorizationHeader;
+	self.requestsQueue.suspended = (_hasAuthorizationHeader == NO);
+}
+
+
+
+#pragma mark - Perform Requests Logged In
 - (void)performRequestWhenLoggedIn:(void (^)())requestBlock
 {
 	NSParameterAssert(requestBlock);
 	
-//	if (!self.isAuthorizationSet) {
-//		[PRIAppDelegate openURL:@"prismatic://login".pri_URL];
-//	} else {
+	if (!self.hasAuthorizationHeader) {
+		[self.requestsQueue addOperationWithBlock:requestBlock];
+		[PRIAppDelegate.sharedAppDelegate showAuthorizationView];
+	} else {
 		requestBlock();
-//	}
+	}
 }
 
+
+#pragma mark - Requests
 - (void)printersAvailableSuccess:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
 {
 	NSParameterAssert(success);

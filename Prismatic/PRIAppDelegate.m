@@ -14,6 +14,7 @@
 
 #import "NSString+PRIURLHelpers.h"
 
+#import "PRIAuthorizationViewController.h"
 #import "PRIPrintViewController.h"
 
 #import <CDKitt/NSFileManager+CDKitt.h>
@@ -24,6 +25,7 @@
 
 @interface PRIAppDelegate (/*Private*/)
 @property (strong) UIViewController *presentedPrintViewController;
+@property (strong) PRIAuthorizationViewController *presentedAuthorizationViewController;
 
 @property (strong) dispatch_queue_t printersQueue;
 @property (copy, readwrite) NSArray *printers;
@@ -155,6 +157,26 @@
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:printViewController];
 	self.presentedPrintViewController = navigationController;
 	[presentingController presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)showAuthorizationView
+{
+	if (self.presentedAuthorizationViewController == nil) {
+		self.presentedAuthorizationViewController = [self.storyboard instantiateViewControllerWithIdentifier:PRIAuthorizationViewController.storyboardIdentifier];
+		
+		UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.presentedAuthorizationViewController];
+		
+//		navigationController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel handler:^(__unused id _) {
+//			[self dismissViewControllerAnimated:YES completion:nil];
+//		}];
+		
+		[self.rootNavigationController presentViewController:navigationController animated:YES completion:nil];
+	}
+}
+
+- (UIStoryboard *)storyboard
+{
+	return self.window.rootViewController.storyboard;
 }
 
 - (UINavigationController *)rootNavigationController
