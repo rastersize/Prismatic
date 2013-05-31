@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "PRITableViewController.h"
+#import "UITextField+PRIResponderChain.h"
 
-@interface PRIAuthorizationViewController : PRITableViewController
+
+typedef void (^PRIAuthorizationSucceeded)(NSString *username, NSString *password);
+
+
+@interface PRIAuthorizationViewController : PRITableViewController <UITextFieldDelegate>
 
 + (NSString *)storyboardIdentifier;
+@property (copy) PRIAuthorizationSucceeded authorizationSucceededHandler;
 
 @end

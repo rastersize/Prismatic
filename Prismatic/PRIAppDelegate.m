@@ -21,6 +21,7 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import <Crashlytics/Crashlytics.h>
 #import <Mantle/Mantle.h>
+#import <BlocksKit/BlocksKit.h>
 
 
 @interface PRIAppDelegate (/*Private*/)
@@ -166,17 +167,30 @@
 
 - (void)showAuthorizationView
 {
-	if (self.presentedAuthorizationViewController == nil) {
-		self.presentedAuthorizationViewController = [self.storyboard instantiateViewControllerWithIdentifier:PRIAuthorizationViewController.storyboardIdentifier];
-		
-		UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.presentedAuthorizationViewController];
-		
-//		navigationController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel handler:^(__unused id _) {
-//			[self dismissViewControllerAnimated:YES completion:nil];
-//		}];
-		
-		[self.rootNavigationController presentViewController:navigationController animated:YES completion:nil];
-	}
+	dispatch_async(dispatch_get_main_queue(), ^{
+		if (self.presentedAuthorizationViewController == nil) {
+			self.presentedAuthorizationViewController = [self.storyboard instantiateViewControllerWithIdentifier:PRIAuthorizationViewController.storyboardIdentifier];
+			
+			UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.presentedAuthorizationViewController];
+			
+			self.presentedAuthorizationViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel handler:^(__unused id _) {
+				[self.rootNavigationController dismissViewControllerAnimated:YES completion:^{
+					self.presentedAuthorizationViewController = nil;
+				}];
+			}];
+			
+			__weak PRIAppDelegate *weakSelf = self;
+			self.presentedAuthorizationViewController.authorizationSucceededHandler = ^(NSString *username, NSString *password) {
+				__strong PRIAppDelegate *self = weakSelf;
+				[PRIPrintClient.sharedClient setAuthorizationHeaderWithUsername:username password:password];
+				[self.rootNavigationController dismissViewControllerAnimated:YES completion:^{
+					self.presentedAuthorizationViewController = nil;
+				}];
+			};
+			
+			[self.rootNavigationController presentViewController:navigationController animated:YES completion:nil];
+		}
+	});
 }
 
 - (UIStoryboard *)storyboard

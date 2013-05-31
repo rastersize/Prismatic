@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.82141071560000001" green="0.83632743359999995" blue="0.87550216910000001" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection footerTitle="Browse to and select a file to send it to a Chalmers printer." id="hGj-PN-ZrR">
+                            <tableViewSection footerTitle="Select a file from one of the source to print it using any of Chalmers’ printers." id="hGj-PN-ZrR">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="1Lc-Xf-8Yv" imageView="FUg-a3-bBe" style="IBUITableViewCellStyleDefault" id="7cg-cM-5qp">
                                         <rect key="frame" x="0.0" y="10" width="320" height="45"/>
@@ -611,12 +611,15 @@
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ta" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-0l-tPm">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="johansso" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-0l-tPm">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="QUX-Gg-kBZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="zQA-Ku-s1J" id="eEP-HO-AKM"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CID" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HU2-Bo-SVZ">
                                                     <constraints>
@@ -645,12 +648,15 @@
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ta" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VNj-H6-dyB">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="a good password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VNj-H6-dyB">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="4Dt-Vj-2G6"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="zQA-Ku-s1J" id="buq-1I-2vZ"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htd-Tg-Tpb">
                                                     <constraints>
@@ -696,10 +702,15 @@
                             <outlet property="delegate" destination="zQA-Ku-s1J" id="iGt-Xw-tLZ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="passwordTextField" destination="VNj-H6-dyB" id="8XQ-iS-deb"/>
+                        <outlet property="signInCell" destination="gxE-G2-r1D" id="tcC-hR-qE8"/>
+                        <outlet property="usernameTextField" destination="nGE-0l-tPm" id="s27-rB-6yh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Caz-bi-akR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="895"/>
+            <point key="canvasLocation" x="1116" y="846"/>
         </scene>
         <!--Printers View Controller - Printers-->
         <scene sceneID="sMe-Wc-6Kg">
@@ -905,8 +916,13 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="PRIAuthorizationViewController" superclassName="UITableViewController">
+        <class className="PRIAuthorizationViewController" superclassName="PRITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PRIAuthorizationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="signInCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="PRIPrintViewController" superclassName="PRITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PRIPrintViewController.h"/>
