@@ -49,7 +49,7 @@
 	return self;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[Crashlytics startWithAPIKey:@"bede20b91f373b5268c4ce52bf52d6a0fbeb391b"];
 	[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
@@ -67,6 +67,11 @@
 		DLog(@"network reachability changed to %@", statusString);
 	}];
 	
+	return YES;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
 		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
 		UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
@@ -126,11 +131,11 @@
 - (void)printFile:(PRIFile *)file usingPrinter:(PRIPrinter *)printer
 {
 	[PRIPrintClient.sharedClient printFile:file usingPrinter:printer uploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-		
+		DLog(@"print progress: %lu (%lld of %lld)", (unsigned long)bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
 	} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		
+		DLog(@"print success: %@ with response: %@", operation, responseObject);
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		
+		DLogWarning(@"print failed: %@ with error: %@", operation, error);
 	}];
 }
 
