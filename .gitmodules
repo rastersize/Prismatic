@@ -16,3 +16,6 @@
 [submodule "Vendor/CDKitt"]
 	path = Vendor/CDKitt
 	url = https://github.com/rastersize/CDKitt.git
+[submodule "Vendor/ReactiveCocoa"]
+	path = Vendor/ReactiveCocoa
+	url = https://github.com/ReactiveCocoa/ReactiveCocoa.git
