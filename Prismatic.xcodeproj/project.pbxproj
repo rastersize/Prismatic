@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9C19D41D1757E40C00CE87EB /* libCDKitt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C19D41A1757E3F400CE87EB /* libCDKitt.a */; };
 		9C19D4331757EB3600CE87EB /* PRIAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C19D4321757EB3600CE87EB /* PRIAuthorizationViewController.m */; };
-		9CADC7AB1758160500524DCE /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CADC7AA1758160500524DCE /* libBlocksKit.a */; };
 		9CADC80D175821BC00524DCE /* UITextField+PRIResponderChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CADC80C175821BC00524DCE /* UITextField+PRIResponderChain.m */; };
 		9CB56A211711B9920076F981 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A1C1711B9920076F981 /* TFHpple.m */; };
 		9CB56A221711B9920076F981 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB56A1E1711B9920076F981 /* TFHppleElement.m */; };
@@ -221,51 +220,6 @@
 		9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CDKitt.xcodeproj; path = Vendor/CDKitt/CDKitt.xcodeproj; sourceTree = "<group>"; };
 		9C19D4311757EB3600CE87EB /* PRIAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRIAuthorizationViewController.h; sourceTree = "<group>"; };
 		9C19D4321757EB3600CE87EB /* PRIAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRIAuthorizationViewController.m; sourceTree = "<group>"; };
-		9CADC7AA1758160500524DCE /* libBlocksKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBlocksKit.a; sourceTree = "<group>"; };
-		9CADC7DB175816C900524DCE /* A2BlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2BlockDelegate.h; sourceTree = "<group>"; };
-		9CADC7DC175816C900524DCE /* A2BlockInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2BlockInvocation.h; sourceTree = "<group>"; };
-		9CADC7DD175816C900524DCE /* A2DynamicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2DynamicDelegate.h; sourceTree = "<group>"; };
-		9CADC7DE175816C900524DCE /* BKGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGlobals.h; sourceTree = "<group>"; };
-		9CADC7DF175816C900524DCE /* BKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKMacros.h; sourceTree = "<group>"; };
-		9CADC7E0175816C900524DCE /* BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocksKit.h; sourceTree = "<group>"; };
-		9CADC7E1175816C900524DCE /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
-		9CADC7E2175816C900524DCE /* ffi_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
-		9CADC7E3175816C900524DCE /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
-		9CADC7E4175816C900524DCE /* ffi_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
-		9CADC7E5175816C900524DCE /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
-		9CADC7E6175816C900524DCE /* fficonfig_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_armv7.h; sourceTree = "<group>"; };
-		9CADC7E7175816C900524DCE /* fficonfig_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_i386.h; sourceTree = "<group>"; };
-		9CADC7E8175816C900524DCE /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
-		9CADC7E9175816C900524DCE /* ffitarget_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
-		9CADC7EA175816C900524DCE /* ffitarget_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
-		9CADC7EB175816C900524DCE /* MFMailComposeViewController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMailComposeViewController+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7EC175816C900524DCE /* MFMessageComposeViewController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMessageComposeViewController+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7ED175816C900524DCE /* NSArray+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7EE175816C900524DCE /* NSCache+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7EF175816C900524DCE /* NSDictionary+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F0175816C900524DCE /* NSIndexSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F1175816C900524DCE /* NSInvocation+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F2175816C900524DCE /* NSMutableArray+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F3175816C900524DCE /* NSMutableDictionary+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F4175816C900524DCE /* NSMutableIndexSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F5175816C900524DCE /* NSMutableOrderedSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableOrderedSet+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F6175816C900524DCE /* NSMutableSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7F7175816C900524DCE /* NSObject+A2DynamicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+A2DynamicDelegate.h"; sourceTree = "<group>"; };
-		9CADC7F8175816C900524DCE /* NSObject+AssociatedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AssociatedObjects.h"; sourceTree = "<group>"; };
-		9CADC7F9175816C900524DCE /* NSObject+BlockObservation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockObservation.h"; sourceTree = "<group>"; };
-		9CADC7FA175816C900524DCE /* NSObject+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7FB175816C900524DCE /* NSOrderedSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7FC175816C900524DCE /* NSSet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7FD175816C900524DCE /* NSTimer+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7FE175816C900524DCE /* NSURLConnection+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC7FF175816C900524DCE /* UIActionSheet+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC800175816C900524DCE /* UIAlertView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC801175816C900524DCE /* UIBarButtonItem+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC802175816C900524DCE /* UIControl+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC803175816C900524DCE /* UIGestureRecognizer+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC804175816C900524DCE /* UIPopoverController+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC805175816C900524DCE /* UIView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BlocksKit.h"; sourceTree = "<group>"; };
-		9CADC806175816C900524DCE /* UIWebView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+BlocksKit.h"; sourceTree = "<group>"; };
 		9CADC80B175821BC00524DCE /* UITextField+PRIResponderChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+PRIResponderChain.h"; sourceTree = "<group>"; };
 		9CADC80C175821BC00524DCE /* UITextField+PRIResponderChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+PRIResponderChain.m"; sourceTree = "<group>"; };
 		9CB56A1B1711B9920076F981 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Vendor/Hpple/TFHpple.h; sourceTree = "<group>"; };
@@ -394,7 +348,6 @@
 				9CFD9676170E38C9006E061A /* Crashlytics.framework in Frameworks */,
 				9CFD96D41710692F006E061A /* libMantle.a in Frameworks */,
 				9CE4C0F9170DFE0400DA04D9 /* libSSToolkit.a in Frameworks */,
-				9CADC7AB1758160500524DCE /* libBlocksKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,67 +386,6 @@
 				9CB56A3D171211540076F981 /* NSUserDefaults+Prismatic.m */,
 			);
 			name = Foundation;
-			sourceTree = "<group>";
-		};
-		9CADC77C1758160500524DCE /* BlocksKit */ = {
-			isa = PBXGroup;
-			children = (
-				9CADC7DA175816C900524DCE /* BlocksKit */,
-				9CADC7AA1758160500524DCE /* libBlocksKit.a */,
-			);
-			name = BlocksKit;
-			path = Vendor/BlocksKit;
-			sourceTree = "<group>";
-		};
-		9CADC7DA175816C900524DCE /* BlocksKit */ = {
-			isa = PBXGroup;
-			children = (
-				9CADC7DB175816C900524DCE /* A2BlockDelegate.h */,
-				9CADC7DC175816C900524DCE /* A2BlockInvocation.h */,
-				9CADC7DD175816C900524DCE /* A2DynamicDelegate.h */,
-				9CADC7DE175816C900524DCE /* BKGlobals.h */,
-				9CADC7DF175816C900524DCE /* BKMacros.h */,
-				9CADC7E0175816C900524DCE /* BlocksKit.h */,
-				9CADC7E1175816C900524DCE /* ffi.h */,
-				9CADC7E2175816C900524DCE /* ffi_armv7.h */,
-				9CADC7E3175816C900524DCE /* ffi_common.h */,
-				9CADC7E4175816C900524DCE /* ffi_i386.h */,
-				9CADC7E5175816C900524DCE /* fficonfig.h */,
-				9CADC7E6175816C900524DCE /* fficonfig_armv7.h */,
-				9CADC7E7175816C900524DCE /* fficonfig_i386.h */,
-				9CADC7E8175816C900524DCE /* ffitarget.h */,
-				9CADC7E9175816C900524DCE /* ffitarget_armv7.h */,
-				9CADC7EA175816C900524DCE /* ffitarget_i386.h */,
-				9CADC7EB175816C900524DCE /* MFMailComposeViewController+BlocksKit.h */,
-				9CADC7EC175816C900524DCE /* MFMessageComposeViewController+BlocksKit.h */,
-				9CADC7ED175816C900524DCE /* NSArray+BlocksKit.h */,
-				9CADC7EE175816C900524DCE /* NSCache+BlocksKit.h */,
-				9CADC7EF175816C900524DCE /* NSDictionary+BlocksKit.h */,
-				9CADC7F0175816C900524DCE /* NSIndexSet+BlocksKit.h */,
-				9CADC7F1175816C900524DCE /* NSInvocation+BlocksKit.h */,
-				9CADC7F2175816C900524DCE /* NSMutableArray+BlocksKit.h */,
-				9CADC7F3175816C900524DCE /* NSMutableDictionary+BlocksKit.h */,
-				9CADC7F4175816C900524DCE /* NSMutableIndexSet+BlocksKit.h */,
-				9CADC7F5175816C900524DCE /* NSMutableOrderedSet+BlocksKit.h */,
-				9CADC7F6175816C900524DCE /* NSMutableSet+BlocksKit.h */,
-				9CADC7F7175816C900524DCE /* NSObject+A2DynamicDelegate.h */,
-				9CADC7F8175816C900524DCE /* NSObject+AssociatedObjects.h */,
-				9CADC7F9175816C900524DCE /* NSObject+BlockObservation.h */,
-				9CADC7FA175816C900524DCE /* NSObject+BlocksKit.h */,
-				9CADC7FB175816C900524DCE /* NSOrderedSet+BlocksKit.h */,
-				9CADC7FC175816C900524DCE /* NSSet+BlocksKit.h */,
-				9CADC7FD175816C900524DCE /* NSTimer+BlocksKit.h */,
-				9CADC7FE175816C900524DCE /* NSURLConnection+BlocksKit.h */,
-				9CADC7FF175816C900524DCE /* UIActionSheet+BlocksKit.h */,
-				9CADC800175816C900524DCE /* UIAlertView+BlocksKit.h */,
-				9CADC801175816C900524DCE /* UIBarButtonItem+BlocksKit.h */,
-				9CADC802175816C900524DCE /* UIControl+BlocksKit.h */,
-				9CADC803175816C900524DCE /* UIGestureRecognizer+BlocksKit.h */,
-				9CADC804175816C900524DCE /* UIPopoverController+BlocksKit.h */,
-				9CADC805175816C900524DCE /* UIView+BlocksKit.h */,
-				9CADC806175816C900524DCE /* UIWebView+BlocksKit.h */,
-			);
-			path = BlocksKit;
 			sourceTree = "<group>";
 		};
 		9CB56A1A1711B9790076F981 /* Hpple */ = {
@@ -655,7 +547,6 @@
 		9CE4C0E8170DFDE200DA04D9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				9CADC77C1758160500524DCE /* BlocksKit */,
 				9CFD9629170DFF65006E061A /* AFNetworking */,
 				9CFD9675170E38C9006E061A /* Crashlytics.framework */,
 				9C19D40E1757E3F300CE87EB /* CDKitt.xcodeproj */,
@@ -1247,14 +1138,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
 					Vendor/SSToolkit,
-					Vendor/BlocksKit,
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "Prismatic/Prismatic-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Vendor/BlocksKit\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1276,14 +1163,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
 					Vendor/SSToolkit,
-					Vendor/BlocksKit,
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "Prismatic/Prismatic-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Vendor/BlocksKit\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
