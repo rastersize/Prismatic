@@ -21,7 +21,6 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import <Crashlytics/Crashlytics.h>
 #import <Mantle/Mantle.h>
-#import <BlocksKit/BlocksKit.h>
 
 
 @interface PRIAppDelegate (/*Private*/)
@@ -173,11 +172,8 @@
 			
 			UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.presentedAuthorizationViewController];
 			
-			self.presentedAuthorizationViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel handler:^(__unused id _) {
-				[self.rootNavigationController dismissViewControllerAnimated:YES completion:^{
-					self.presentedAuthorizationViewController = nil;
-				}];
-			}];
+			self.presentedAuthorizationViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAuthorization)];
+			self.presentedAuthorizationViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Sign In", @"Sign in bar button title") style:UIBarButtonItemStyleDone target:self action:@selector(signIn)];
 			
 			__weak PRIAppDelegate *weakSelf = self;
 			self.presentedAuthorizationViewController.authorizationSucceededHandler = ^(NSString *username, NSString *password) {
@@ -191,6 +187,18 @@
 			[self.rootNavigationController presentViewController:navigationController animated:YES completion:nil];
 		}
 	});
+}
+
+- (void)cancelAuthorization
+{
+	[self.rootNavigationController dismissViewControllerAnimated:YES completion:^{
+		self.presentedAuthorizationViewController = nil;
+	}];
+}
+
+- (void)signIn
+{
+	[self.presentedAuthorizationViewController signIn];
 }
 
 - (UIStoryboard *)storyboard
