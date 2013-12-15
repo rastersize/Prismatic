@@ -24,8 +24,8 @@
 //	UIFont *italicsFont = [UIFont pri_italicsAppFontOfSize:0.f];
 	
 	// Navigation bars
-	[UIBarButtonItem.appearance setTitleTextAttributes:@{ UITextAttributeFont: boldFont } forState:0];
-	[UINavigationBar.appearance setTitleTextAttributes:@{ UITextAttributeFont: boldFont }];
+	[UIBarButtonItem.appearance setTitleTextAttributes:@{ NSFontAttributeName: boldFont } forState:0];
+	[UINavigationBar.appearance setTitleTextAttributes:@{ NSFontAttributeName: boldFont }];
 	
 	// Search bars
 	[[UITextField appearanceWhenContainedIn:UISearchBar.class , nil] setFont:[regularFont fontWithSize:UIFont.systemFontSize]];
