@@ -12,6 +12,7 @@
 #import "NSString+PRIURLHelpers.h"
 
 
+NSString *const kPRIPrintClientBackgroundSessionIdentifier = @"com.cedercrantz.Prismatic.print-client.background-session";
 NSString *const kPRIPrintClientErrorDomain = @"com.cedercrantz.Prismatic.print-client.error";
 
 NSString *const kPRIPrintClientErrorInvalidResponseOriginalResponseKey = @"PRIPrintClientErrorInvalidResponseOriginalResponseKey";
@@ -19,6 +20,9 @@ NSString *const kPRIPrintClientErrorInvalidResponseOriginalResponseKey = @"PRIPr
 
 NSString *const kPRIPrintClientBaseURLString = @"https://print.chalmers.se/";
 NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
+
+
+#define PRIDispatchCompletionBlock(completionBlockCall)		do { dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ (completionBlockCall); }); } while(0)
 
 
 @interface PRIPrintClient (/*Private*/)
@@ -37,15 +41,18 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		NSURL *baseUrl = [NSURL URLWithString:kPRIPrintClientBaseURLString];
-		_sharedClient = [self clientWithBaseURL:baseUrl];
+		_sharedClient = [[self alloc] initWithBaseURL:baseUrl];
 	});
 	return _sharedClient;
 }
 
 - (id)initWithBaseURL:(NSURL *)url
 {
-	self = [super initWithBaseURL:url];
+	NSURLSessionConfiguration *sessionConfiguration = nil;//[NSURLSessionConfiguration backgroundSessionConfiguration:kPRIPrintClientBackgroundSessionIdentifier];
+	self = [super initWithBaseURL:url sessionConfiguration:sessionConfiguration];
 	if (self) {
+		self.responseSerializer = AFHTTPResponseSerializer.serializer;
+		
 		_hasAuthorizationHeader = NO;
 		
 		_parserQueue = [[NSOperationQueue alloc] init];
@@ -63,7 +70,7 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 #pragma mark - Authorization
 - (void)setAuthorizationHeaderWithUsername:(NSString *)username password:(NSString *)password
 {
-	[super setAuthorizationHeaderWithUsername:username password:password];
+	[self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
 	self.hasAuthorizationHeader = (username.length > 0 && password.length > 0);
 }
 
@@ -90,24 +97,27 @@ NSString *const kPRIPrintClientUploadPath = @"auth/uploadme.cgi";
 
 
 #pragma mark - Requests
-- (void)printersAvailableSuccess:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+- (void)printersAvailable:(void (^)(NSURLSessionDataTask *task, BOOL success, id responseObject))completionBlock
 {
-	NSParameterAssert(success);
+	NSParameterAssert(completionBlock);
 	
 	[self performRequestWhenLoggedIn:^{
-		void (^successBLock)(AFHTTPRequestOperation *, id) = ^(AFHTTPRequestOperation *operation, id responseObject) {
+		void (^successBlock)(NSURLSessionDataTask *, id) = ^(NSURLSessionDataTask *task, id responseObject) {
 			if (responseObject && [responseObject isKindOfClass:NSData.class]) {
 				PRIPrintersAvailableParseOperation *parseOperation = [PRIPrintersAvailableParseOperation parserWithHTMLData:responseObject completion:^(NSArray *printers) {
-					success(operation, printers);
+					PRIDispatchCompletionBlock(completionBlock(task, YES, printers));
 				}];
 				[self.parserQueue addOperation:parseOperation];
-			} else if (failure != nil) {
+			} else {
 				NSError *error = [NSError errorWithDomain:kPRIPrintClientErrorDomain code:kPRIPrintClientErrorInvalidResponse userInfo:@{ kPRIPrintClientErrorInvalidResponseOriginalResponseKey: (responseObject ?: NSNull.null) }];
-				failure(operation, error);
+				PRIDispatchCompletionBlock(completionBlock(task, NO, error));
 			}
 		};
+		void (^failureBlock)(NSURLSessionDataTask *, id) = ^(NSURLSessionDataTask *task, NSError *error) {
+			PRIDispatchCompletionBlock(completionBlock(task, NO, error));
+		};
 		
-		[self getPath:kPRIPrintClientUploadPath parameters:nil success:successBLock failure:failure];
+		[self GET:kPRIPrintClientUploadPath parameters:nil success:successBlock failure:failureBlock];
 	}];
 }
 

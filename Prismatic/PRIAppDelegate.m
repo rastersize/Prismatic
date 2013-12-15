@@ -19,7 +19,6 @@
 
 #import <CDKitt/NSFileManager+CDKitt.h>
 #import "AFNetworkActivityIndicatorManager.h"
-#import <Crashlytics/Crashlytics.h>
 #import <Mantle/Mantle.h>
 
 
@@ -51,11 +50,10 @@
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[Crashlytics startWithAPIKey:@"bede20b91f373b5268c4ce52bf52d6a0fbeb391b"];
 	[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 	[PRIStyleController applyStyles];
 	
-	[PRIPrintClient.sharedClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+	[PRIPrintClient.sharedClient.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
 		NSString *statusString = @"unknown";
 		if (status == AFNetworkReachabilityStatusNotReachable) {
 			statusString = @"not reachable";
@@ -66,6 +64,7 @@
 		}
 		DLog(@"network reachability changed to %@", statusString);
 	}];
+	[PRIPrintClient.sharedClient.reachabilityManager startMonitoring];
 	
 	return YES;
 }
@@ -268,7 +267,7 @@
 	NSArray *printers = [self printerObjectsFromJSONData:printersJsonData];
 	if (printers != nil) {
 		self.printers = printers;
-		delayInSeconds = 10.f;
+		delayInSeconds = 1.f;
 	}
 	
 	DLog(@"delay: %f", delayInSeconds);
@@ -276,13 +275,16 @@
 	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
 	dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
 ////////////////////////////////////////////////////////////////////////////////
-		[[PRIPrintClient sharedClient] setAuthorizationHeaderWithUsername:@"" password:@""];
+		[PRIPrintClient.sharedClient setAuthorizationHeaderWithUsername:@"" password:@""];
 ////////////////////////////////////////////////////////////////////////////////
-		[[PRIPrintClient sharedClient] printersAvailableSuccess:^(AFHTTPRequestOperation *operation, NSArray *updatedPrinters) {
-			self.printers = updatedPrinters;
-			[self savePrinters];
-		} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-			DLog(@"Could not update printers list: %@", error);
+		[PRIPrintClient.sharedClient printersAvailable:^(NSURLSessionDataTask *task, BOOL success, id responseObject) {
+			if (success && [responseObject isKindOfClass:NSArray.class]) {
+				NSArray *updatedPrinters = (NSArray *)responseObject;
+				self.printers = updatedPrinters;
+				[self savePrinters];
+			} else {
+				DLog(@"Could not update printers list: %@", responseObject);
+			}
 		}];
 	});
 }
